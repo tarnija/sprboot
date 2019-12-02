@@ -29,27 +29,19 @@ public class NewUserController {
 	
 	@RequestMapping(value="/newUser", method = RequestMethod.POST)
     public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password ,@RequestParam String email,@RequestParam String ques,@RequestParam String ans){
- boolean existswithemail=userService.checkifuserAlreadyExists(email,new HashMap<>());
-boolean existswithname= userService.checkifuserAlreadyExistsWithName(name,new HashMap<>());
- if(!existswithemail && !existswithname) {
+
+ 
 		boolean added=userService.addUser(name, password, email,ques,ans);
+		if(added) {
 		model.addAttribute("msg", "Added Successfully user!!!!. Please login");
 		return "login";
+		}
+		else {
+			model.addAttribute("errorMessage", "User not added");
+			return "login";
+		}
  }
- else if(existswithemail && existswithname)
- {
-	 model.addAttribute("errorMessage","User already exists with this email id and username. Restore credentials with Forgot Credentials");
-	 return "login";
- }
- else if(existswithemail) {
-	 model.addAttribute("errorMessage","User already exists with this email id. Restore credentials with Forgot Credentials");
- return "login";
-    }
-	else {
-		 model.addAttribute("errorMessage","User already exists with this username. Restore credentials with Forgot Credentials");
-	 return "login";
-	    }
-	}
+ 
 	
 	@RequestMapping(value="/verifyUserName",method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public @ResponseBody ResponseEntity<String> verifyUserName(@RequestParam String name){

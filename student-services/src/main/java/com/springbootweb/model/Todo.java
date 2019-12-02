@@ -19,6 +19,7 @@ public class Todo {
     private String doer;
     private Date date;
     private String task;
+    private String uname;
     private Timestamp time;
     private boolean isDone;
     @Id

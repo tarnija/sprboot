@@ -11,41 +11,60 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 </script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
- 
-<script>
-$(document).ready(function(){
-	$("#form").hide()
-    $("#show").click(function(){
-    	if($("#form").is(":visible")){
-    		 $("#form").hide();
-        	} 
-    	else{
-    		$("#form").show();
-        	}
-  });
-});
-</script>
+ <script type="text/javascript" src="js/welcome.js"></script>
 </head>
 <body>
   Welcome ${name}!! 
   <a href="#" id="show">Click here</a> to add your todo's.<br>
+  <div class="container">
   <div id="form">
-  <form action="addTodo" method="post">
-  <fieldset style="width:500px;">
-    <legend>Add your todo:</legend>
-    Task: <input type="text" name="task"><br>
-    Who should do it: <input type="text" name="doer"><br>
-    Date: <input type="date" name="date"><br>
-    Time: <input type="time" name="time"><br>
-    <input type="submit">
+  <form autocomplete="off" method="post">
+  <fieldset  class="scheduler-border">
+    <legend class="scheduler-border">Add your todo:</legend>
+   <div class="form-group row">
+  <label for="colFormLabel" class="col-sm-3 col-form-label-lg">Task : </label>
+    <div class="col-sm-3">
+     <input class="form-control" id="task" type="text" name="task">
+     </div>
+     <div class="col-sm-2" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
+    <div class="col-sm-2" id="icn2" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">User Does Not Exists</font></div>
+    </div>
+   
+       <div class="form-group row">
+       <label for="colFormLabel" class="col-sm-3 col-form-label-lg">Who should do it : </label>
+     <div class="col-sm-3">  
+      <input class="form-control" id="doer" type="text" name="doer">
+      </div>
+       <div class="col-sm-2" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
+    <div class="col-sm-2" id="icn2" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">User Does Not Exists</font></div>
+    </div>
+  
+     <div class="form-group row">
+       <label for="colFormLabel" class="col-sm-3 col-form-label-lg"> Date : </label>
+    <div class="col-sm-3">  
+    <input class="form-control" id="date" type="date" name="date">
+    </div>
+    </div>
+   
+     <div class="form-group row">
+      <label for="colFormLabel" class="col-sm-3 col-form-label-lg"> Time : </label>
+      <div class="col-sm-3">  
+     <input class="form-control" id="time" type="time" name="time">
+     </div>
+   </div>
+   
+     <div class="col-auto"  >  
+    <input class="btn btn-primary mb-2" type="button" value="Add Task" onclick="addTask()">
+    </div>
   </fieldset>
 </form>
+  </div>
   </div>
   <br>
    Here are the list of your todos:<br>
    
     
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="mytable">
 <tbody>
 <thead>
       <tr>

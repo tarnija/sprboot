@@ -8,6 +8,8 @@ import com.springbootweb.model.Todo;
 
 public interface TodoRepository extends JpaRepository<Todo, Integer> {
 
-	List<Todo> findTodoByUserid(int userid);
+	
+
+	List<Todo> findTodoByUname(String uname);
 
 }

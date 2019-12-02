@@ -27,8 +27,8 @@ TodoRepository tododao;
 		 */
     }
 
-    public List<Todo> retrieveTodos(int id) {
-        List<Todo> filteredTodos = tododao.findTodoByUserid(id);
+    public List<Todo> retrieveTodos(String uname) {
+        List<Todo> filteredTodos = tododao.findTodoByUname(uname);
         List<String> task=new ArrayList<>();
         for(Todo todo:filteredTodos) {
         	String t=todo.getDoer()+" should "+todo.getTask()
@@ -38,9 +38,10 @@ TodoRepository tododao;
         return filteredTodos;
     }
 
-	public void addTodo(String task, String doer, String date, String time, int id) {
-		try {
+	public Todo addTodo(String task, String doer, String date, String time, int id, String name) {
 		Todo todo=new Todo();
+		try {
+		
 		todo.setUserid(id); 
 		todo.setDoer(doer);
 		todo.setTask(task);
@@ -52,11 +53,14 @@ TodoRepository tododao;
 		    Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
 		    todo.setTime(timestamp);
 		    todo.setDone(false);
+		    todo.setUname(name);
 		    tododao.save(todo);
+		    return todo;
 		}
 		catch (Exception e) {
 		e.printStackTrace();
 		}
+		return todo;
 		
 	}
 }
