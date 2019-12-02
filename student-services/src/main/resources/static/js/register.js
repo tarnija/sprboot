@@ -226,4 +226,6 @@ function mySubmitFunction(e){
 		$("#err").text("Please fill all the fields correctly");
 	}
 	
+	
+	
 }
