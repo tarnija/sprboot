@@ -23,19 +23,9 @@ function addTask(){
 			 success: function(response){
 				
 				console.log(response.data);
-				$("#tableID").find('tbody')
-			    .append($('<tr>')
-			        .append($('<td>'+task+'</td>')
-			        		)
-			        		.append($('<td>'+doer+'</td>')
-			        		)
-			        		.append($('<td>'+date+'</td>')
-			        		)
-			        		.append($('<td>'+time+'</td>')
-			        		)
-			        		
-			        		);
-			$("#mytable").html();
+			var	markup = "<tr><td>"+doer+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td></tr>";
+			var tableBody = $("table tbody"); 
+			tableBody.append(markup); 
 			 },
 			 error: function(e){
 	    		    alert('Error: ' + e);
