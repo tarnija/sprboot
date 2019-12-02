@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
 import com.springbootweb.controller.NewUserController;
 import com.springbootweb.dao.UserRepository;
@@ -36,8 +37,8 @@ public boolean checkifuserAlreadyExists(String email, HashMap<String, String> re
 	List<UserNew> user=userDao.findAllUsersWithEmai(email);
 	
 	if(user.size()>0){
-		result.put("question", user.get(0).getSecurityQuestion());
-		result.put("answer", user.get(0).getAnswer());
+		result.put("question",user.get(0).getSecurityQuestion());
+		result.put("answer",user.get(0).getAnswer());
 		return true;
 	}
 	else {
@@ -48,8 +49,8 @@ public boolean checkifuserAlreadyExistsWithName(String name, HashMap<String, Str
 	UserNew user=userDao.findUserByName(name);
 	
 	if(user!=null){
-		result.put("question", user.getSecurityQuestion());
-		result.put("answer", user.getAnswer());
+		result.put("question",user.getSecurityQuestion());
+		result.put("answer",user.getAnswer());
 		return true;
 	}
 	else {
@@ -74,5 +75,17 @@ public String getUserCredentials(String email) {
 	String msg= "Your credentials are: Username: "+username+" Password: "+password;
 	return msg;
 			
+}
+public boolean updateUserPassword(String email, String pass) {
+	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+	UserNew user=userDao.findUserByNameOrEmail(email,email);
+	if(user!=null) {
+	user.setPassword(encoder.encode(pass));
+	userDao.save(user);
+	return true;
+	}
+	else {
+		return false;
+	}
 }
 }

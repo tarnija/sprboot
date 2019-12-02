@@ -28,16 +28,15 @@ public class RestoreCredentials {
         return "restoreCredentials";
     }
 	@RequestMapping(value="/restoreCredentials", method = RequestMethod.POST)
-    public String getUserDetails(ModelMap model,@RequestParam String email){
-		/*
-		 * boolean exists=userService.checkifuserAlreadyExists(email); boolean
-		 * existwithname= userService.checkifuserAlreadyExistsWithName(email);
-		 * if(exists||existwithname) { String msg=
-		 * userService.getUserCredentials(email); model.addAttribute("msg", msg); } else
-		 * { model.addAttribute("errorMessage",
-		 * "User with email:"+email+" does not exist"); }
-		 */
-        return "restoreCredentials";
+    public String getUserDetails(ModelMap model,@RequestParam String email,@RequestParam String pass){
+		boolean done=userService.updateUserPassword(email,pass);
+		if(done) {
+		model.addAttribute("msg", "Your password has been succcessfully reset !!!!, please login");
+		}
+		else {
+			model.addAttribute("errorMessage", "Error occured while resetting password");
+		}
+        return "login";
     }
 	  @RequestMapping(value="/verify",method=RequestMethod.POST, produces = "application/json; charset=utf-8")
       public @ResponseBody ResponseEntity<String> verify(@RequestParam String email,ModelMap model ){
@@ -45,10 +44,10 @@ public class RestoreCredentials {
 		  boolean exists=userService.checkifuserAlreadyExists(email,result);
 		  boolean existwithname=  userService.checkifuserAlreadyExistsWithName(email,result);
 		  String json = null;
-	       
+	        
 		   if(exists||existwithname) {
 			   result.put("message",  "User Exists");
-			   
+			  
 			    }
 			    else {
 			    	result.put("message",  "User does not exist");

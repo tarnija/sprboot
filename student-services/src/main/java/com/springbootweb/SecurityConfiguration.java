@@ -25,13 +25,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 	@Autowired
     private UserDetailsServiceImpl userDetailsService;
+	
+	
+
+	
     @Override  
     public void configure(HttpSecurity http) throws Exception {  
         http  .csrf().disable()
             .authorizeRequests()
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-            .antMatchers("/verify").permitAll()
             .antMatchers("/").permitAll()
+            .antMatchers("/verify").permitAll()
+            .antMatchers("/verifyUserName").permitAll()
+            .antMatchers("/verifyUserEmail").permitAll()
             .antMatchers("/login").permitAll()
             .antMatchers("/newUser").permitAll()  
             .antMatchers("/forgetCredentials").permitAll()
@@ -51,16 +57,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             
             
         .and().logout().logoutUrl("/lgot").logoutSuccessUrl("/performLogOut");
+        
+       
          //   .httpBasic();  loginCredentials
     }  
-	/*
-	 * @Override public void configure(WebSecurity web) throws Exception {
-	 * web.ignoring().antMatchers("/resources/**").anyRequest(); }
-	 */
-   
+
+	
+
+	 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
- 
+    	 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    	auth.inMemoryAuthentication()
+        .withUser("admin")
+        .password(bCryptPasswordEncoder.encode("pass")).roles("admin");
         // Setting Service to find User in the database.
         // And Setting PassswordEncoder
     	auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
