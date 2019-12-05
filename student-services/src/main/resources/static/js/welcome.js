@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 	$("#form").hide()
     $("#show").click(function(){
     	if($("#form").is(":visible")){
@@ -8,7 +9,11 @@ $(document).ready(function(){
     		$("#form").show();
         	}
   });
+	
+	var today = new Date().toISOString().split('T')[0];
+	document.getElementsByName("date")[0].setAttribute('min', today)
 });
+var ajaxLoadTimeout;
 function addTask(){
 	var task=$("#task").val();
 	var doer=$("#doer").val();
@@ -20,12 +25,15 @@ function addTask(){
 			 type: "POST",
 			 url: "/addTodo",
 			 data: "task=" + task+"&doer=" + doer+"&date=" + date+"&time=" + time,
-			 success: function(response){
-				
+			 success: function(response){				
 				console.log(response.data);
-			var	markup = "<tr><td>"+doer+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td></tr>";
+			var	markup = "<tr><td>"+task+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td></tr>";
 			var tableBody = $("table tbody"); 
-			tableBody.append(markup); 
+			tableBody.fadeOut(1000).delay(1).queue(function() {
+				tableBody.fadeIn(2000).append(markup);
+				$(this).dequeue();
+			});
+			
 			 },
 			 error: function(e){
 	    		    alert('Error: ' + e);
@@ -33,4 +41,7 @@ function addTask(){
 			 
 		});
 		}
+	else{
+		$("#err").text("All fields are required");
+	}
 }

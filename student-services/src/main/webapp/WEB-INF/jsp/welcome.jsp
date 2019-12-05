@@ -19,6 +19,7 @@
   <div class="container">
   <div id="form">
   <form autocomplete="off" method="post">
+  <font color="red" id="err">${errorMessage}</font>
   <fieldset  class="scheduler-border">
     <legend class="scheduler-border">Add your todo:</legend>
    <div class="form-group row">
@@ -62,10 +63,10 @@
   </div>
   <br>
    Here are the list of your todos:<br>
-   
+    <div id="loader" style="display: none;position:fixed"><img alt="Loading ..." src="images/test.gif"></div>
     
     <table class="table table-bordered" id="mytable">
-<tbody>
+
 <thead>
       <tr>
       <th>Task</th>
@@ -75,6 +76,7 @@
        <th>Status</th>
       </tr>
       </thead>
+      <tbody>
     <c:forEach items="${todos}" var="todo">
         <tr>
             <td> <c:out value="${todo.task}"/></td>
@@ -84,6 +86,7 @@
            <td> <c:out value="${todo.done}"/></td>
         </tr>
     </c:forEach>
+  
     </tbody>
 </table>
 <a href="lgot">Logout</a>
