@@ -63,4 +63,9 @@ TodoRepository tododao;
 		return todo;
 		
 	}
+
+	public void delTodo(String id) {
+		tododao.deleteById(Integer.parseInt(id));
+		
+	}
 }

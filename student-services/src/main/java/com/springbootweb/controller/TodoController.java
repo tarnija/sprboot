@@ -20,44 +20,69 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springbootweb.model.Todo;
 import com.springbootweb.service.TodoService;
-@Controller
-@SessionAttributes({"name","id"})
-public class TodoController {
-	  @Autowired
-	    TodoService service;
 
-	    @RequestMapping(value="/list-todos", method = RequestMethod.GET)
-	    public String showTodos(ModelMap model){
-	    	String  name =   (String) model.get("name");
-	    	List<Todo> list=service.retrieveTodos(name);
-	    
-			
-	        model.put("todos",list );
-	        return "welcome";
-	    }
-	    @RequestMapping(value="/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+@Controller
+@SessionAttributes({ "name", "id" })
+public class TodoController {
+	@Autowired
+	TodoService service;
+
+	@RequestMapping(value = "/list-todos", method = RequestMethod.GET)
+	public String showTodos(ModelMap model) {
+		String name = (String) model.get("name");
+		List<Todo> list = service.retrieveTodos(name);
+
+		model.put("todos", list);
+		return "welcome";
+	}
+
+	@RequestMapping(value = "/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 //	    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
-	    public @ResponseBody ResponseEntity<String> addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
-	    	 HashMap<String, Object> result = new HashMap<String, Object>();
-	    	 String json = null;
-	    	 SecurityContext context = SecurityContextHolder.getContext();
-	 	    String  name=context.getAuthentication().getName();
-	    int id= (int) model.getAttribute("id");
-	Todo todo=    	service.addTodo(task,doer,date,time,id,name);
-	    System.out.println("added");
-	    
-	    result.put("data",  todo);
-        ObjectMapper map = new ObjectMapper();
-	        if (!result.isEmpty()) {
-	            try {
-	                json = map.writeValueAsString(result);
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	            }
-	        }
-	        HttpHeaders responseHeaders = new HttpHeaders(); 
-	        responseHeaders.add("Content-Type", "application/json; charset=utf-8"); 
-	        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
-	    }
-	    
+	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String task,
+			@RequestParam String doer, @RequestParam String date, @RequestParam String time) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		String json = null;
+		SecurityContext context = SecurityContextHolder.getContext();
+		String name = context.getAuthentication().getName();
+		int id = (int) model.getAttribute("id");
+		Todo todo = service.addTodo(task, doer, date, time, id, name);
+		System.out.println("added");
+
+		result.put("data", id);
+		ObjectMapper map = new ObjectMapper();
+		if (!result.isEmpty()) {
+			try {
+				json = map.writeValueAsString(result);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "application/json; charset=utf-8");
+		return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
+	}
+	@RequestMapping(value = "/delTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+//    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
+public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestParam String task) {
+	HashMap<String, Object> result = new HashMap<String, Object>();
+	String json = null;
+	SecurityContext context = SecurityContextHolder.getContext();
+	String name = context.getAuthentication().getName();
+	int id = (int) model.getAttribute("id");
+	 service.delTodo(task);
+	System.out.println("deleted");
+
+	result.put("output", "deleted");
+	ObjectMapper map = new ObjectMapper();
+	if (!result.isEmpty()) {
+		try {
+			json = map.writeValueAsString(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	HttpHeaders responseHeaders = new HttpHeaders();
+	responseHeaders.add("Content-Type", "application/json; charset=utf-8");
+	return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
+}
 }

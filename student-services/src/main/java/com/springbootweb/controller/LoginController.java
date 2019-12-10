@@ -33,7 +33,14 @@ public class LoginController {
 
     	    if (!(auth instanceof AnonymousAuthenticationToken))
     	    {
+    	    	
+    	    	if(auth.getName().equalsIgnoreCase("test"))
+    	    	{
+    	    		return "redirect:/welcomeAdmin";
+    	    	}
+    	    	else {
     	        return "redirect:/list-todos";
+    	    	}
     	    }
         return "login";
     }

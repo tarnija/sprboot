@@ -74,16 +74,27 @@
        <th>Date</th>
        <th>Time</th>
        <th>Status</th>
+       <th></th>
       </tr>
       </thead>
       <tbody>
-    <c:forEach items="${todos}" var="todo">
-        <tr>
+    <c:forEach items="${todos}" var="todo" begin="1">
+        <tr id="${todo.id}">
             <td> <c:out value="${todo.task}"/></td>
            <td> <c:out value="${todo.doer}"/></td>
            <td> <c:out value="${todo.date}"/></td>
              <td> <c:out value="${todo.time}"/></td>
            <td> <c:out value="${todo.done}"/></td>
+           <td align="center"> <a href="#" class="btn btn-primary a-btn-slide-text" id="editbut" onclick="">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span>            
+    </a>
+    <a href="#" class="btn btn-primary a-btn-slide-text" id="delbut" onclick="deltask(${todo.id})">
+       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <span><strong>Delete</strong></span>            
+    </a>
+    
+    </td>
         </tr>
     </c:forEach>
   
