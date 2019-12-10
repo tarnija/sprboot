@@ -27,7 +27,7 @@ function addTask(){
 			 data: "task=" + task+"&doer=" + doer+"&date=" + date+"&time=" + time,
 			 success: function(response){				
 				//console.log(response.data);
-			var	markup = "<tr><td>"+task+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td><td align=\"center\"> <a href=\"#\" class=\"btn btn-primary a-btn-slide-text\" id=\"editbut\" onclick=\"\">"
+			var	markup = "<tr id=\""+response.data+"\"><td>"+task+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td><td align=\"center\"> <a href=\"#\" class=\"btn btn-primary a-btn-slide-text\" id=\"editbut\" onclick=\"\">"
         +"<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"
         +"<span><strong>Edit</strong></span>"       
     +"</a>"

@@ -48,7 +48,7 @@ public class TodoController {
 		Todo todo = service.addTodo(task, doer, date, time, id, name);
 		System.out.println("added");
 
-		result.put("data", id);
+		result.put("data", todo.getId());
 		ObjectMapper map = new ObjectMapper();
 		if (!result.isEmpty()) {
 			try {

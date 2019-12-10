@@ -17,7 +17,13 @@
 </head>
 <body>
 <div class="container">
-
+ <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+  <div class="panel panel-info">
+   <div class="panel-heading">
+                <div class="panel-title">Sign Up</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="/accounts/login/">Sign In</a></div>
+            </div>  
+             <div class="panel-body" >
 <font color="red" id="err">${errorMessage}</font>
 <fieldset class="scheduler-border">
 	<legend class="scheduler-border">	<h2>REGISTER USER</h2></legend>
@@ -63,9 +69,9 @@
    
     <select  class="form-control" id="sel1" name="ques" >
     <option value="" selected disabled hidden>Choose here</option>
-      <option onclick="GetSelectedValue()">What's your favourite colour?</option>
-      <option onclick="GetSelectedValue()">What's your father's name?</option>
-      <option onclick="GetSelectedValue()">What's your pet name?</option>
+      <option>What's your favourite colour?</option>
+      <option>What's your father's name?</option>
+      <option>What's your pet name?</option>
     </select>
  
   </div>
@@ -88,6 +94,8 @@
     </fieldset>
   Already a User? <a href="/login">Click here</a> login.
    </div>
-
+   </div>
+   </div>
+</div>
 </body>
 </html>
