@@ -14,14 +14,26 @@
  <script type="text/javascript" src="js/welcome.js"></script>
 </head>
 <body>
-  Welcome ${name}!! 
-  <a href="#" id="show">Click here</a> to add your todo's.<br>
+ <h3>Welcome ${name}!!</h3> 
+   <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal" id="show">Click here to add todo</button>
+<!--  <a href="#" id="show">Click here</a> to add your todo's.<br> -->
   <div class="container">
-  <div id="form">
-  <form autocomplete="off" method="post">
+  
+  
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add your todo:</h4>
+        </div>
+        <form autocomplete="off" method="post" id="myForm">
+        <div class="modal-body">
+         <div id="form">
+  
   <font color="red" id="err">${errorMessage}</font>
   <fieldset  class="scheduler-border">
-    <legend class="scheduler-border">Add your todo:</legend>
+    
    <div class="form-group row">
   <label for="colFormLabel" class="col-sm-3 col-form-label-lg">Task : </label>
     <div class="col-sm-3">
@@ -54,12 +66,28 @@
      </div>
    </div>
    
-     <div class="col-auto"  >  
-    <input class="btn btn-primary mb-2" type="button" value="Add Task" onclick="addTask()">
-    </div>
+     
   </fieldset>
-</form>
+
   </div>
+        </div>
+        <div class="modal-footer">
+       
+         <input class="btn btn-primary mb-2" type="button" value="Add Task" onclick="addTask()">
+          <input type="reset" value="Reset" class="btn btn-default" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+       </form>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
   </div>
   <br>
    Here are the list of your todos:<br>
