@@ -11,22 +11,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
 
 import com.springbootweb.controller.NewUserController;
+import com.springbootweb.dao.AuthRepository;
 import com.springbootweb.dao.UserRepository;
+import com.springbootweb.model.Auth;
 import com.springbootweb.model.UserNew;
 
 @Service
 public class UserService {
 @Autowired
 UserRepository userDao;
+@Autowired
+AuthRepository authDao;
 public boolean addUser(String name,String password,String email, String ques, String ans) {
 	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-	try{UserNew u=new UserNew();
+	try{
+		UserNew u=new UserNew();
 	u.setName(name);
 	u.setPassword(encoder.encode(password));
 	u.setEmail(email);
 	u.setSecurityQuestion(ques);
 	u.setAnswer(ans);
 	userDao.save(u);
+	Auth a=new Auth();
+	a.setName(name);
+	a.setAuthority("user");
+	authDao.save(a);
 	return true;
 	}
 	catch (Exception e) {
