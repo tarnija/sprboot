@@ -30,7 +30,7 @@ margin:auto;
 	 <p style="margin-left:220px;">Here is the list of your task:</p>
 	</div>
 	<div  class="col-md-3">
-		<a href="lgot">Logout</a>
+		<a href="lgot" class="btn btn-outline-info a-btn-slide-text" ><i class="fa fa-sign-out" aria-hidden="true"></i><span><strong>Logout</strong></span></a>
 </div>
 </div>
 <%--  <h3>Welcome ${name}!!</h3> 

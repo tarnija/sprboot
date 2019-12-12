@@ -29,7 +29,9 @@ margin:auto;
 	<h2 style="margin-left:220px;">Welcome admin</h2>
 	</div>
 	<div  class="col-md-3">
-		<a href="lgot"  >Logout</a>
+	
+		<a href="lgot" class="btn btn-outline-info a-btn-slide-text" ><i class="fa fa-sign-out" aria-hidden="true"></i><span><strong>Logout</strong></span></a>
+		
 </div>
 </div>
 <hr>
