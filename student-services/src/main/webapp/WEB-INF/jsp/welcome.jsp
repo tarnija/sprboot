@@ -7,25 +7,47 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 </script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
  <script type="text/javascript" src="js/welcome.js"></script>
+ <style>
+.table{
+width:70%;
+margin:auto;
+}
+
+</style>
 </head>
 <body>
- <h3>Welcome ${name}!!</h3> 
-   <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal" id="show">Click here to add todo</button>
+<div class="row">
+<div class="col-md-9">
+	<h2 style="margin-left:220px;">Welcome ${name}!!</h2>
+	   <button style="margin-left:220px;" type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal" id="show">Click here to add a task</button>
+	<br>
+	<br>
+	 <p style="margin-left:220px;">Here is the list of your task:</p>
+	</div>
+	<div  class="col-md-3">
+		<a href="lgot">Logout</a>
+</div>
+</div>
+<%--  <h3>Welcome ${name}!!</h3> 
+   <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal" id="show">Click here to add a task</button>
 <!--  <a href="#" id="show">Click here</a> to add your todo's.<br> -->
+   --%>
+  
   <div class="container">
-  
-  
     <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-dialog-centered ">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add your todo:</h4>
+         
+          <h4 class="modal-title">Add your task:</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <form autocomplete="off" method="post" id="myForm">
         <div class="modal-body">
@@ -35,8 +57,8 @@
   <fieldset  class="scheduler-border">
     
    <div class="form-group row">
-  <label for="colFormLabel" class="col-sm-3 col-form-label-lg">Task : </label>
-    <div class="col-sm-3">
+  <label for="colFormLabel" class="col-md-4 col-form-label-lg">Task : </label>
+    <div class="col-md-7">
      <input class="form-control" id="task" type="text" name="task">
      </div>
      <div class="col-sm-2" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
@@ -44,8 +66,8 @@
     </div>
    
        <div class="form-group row">
-       <label for="colFormLabel" class="col-sm-3 col-form-label-lg">Who should do it : </label>
-     <div class="col-sm-3">  
+       <label for="colFormLabel" class="col-md-4 col-form-label-lg">Who should do it : </label>
+     <div class="col-md-7">  
       <input class="form-control" id="doer" type="text" name="doer">
       </div>
        <div class="col-sm-2" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
@@ -53,15 +75,15 @@
     </div>
   
      <div class="form-group row">
-       <label for="colFormLabel" class="col-sm-3 col-form-label-lg"> Date : </label>
-    <div class="col-sm-3">  
+       <label for="colFormLabel" class="col-md-4 col-form-label-lg"> Date : </label>
+    <div class="col-md-7">  
     <input class="form-control" id="date" type="date" name="date">
     </div>
     </div>
    
      <div class="form-group row">
-      <label for="colFormLabel" class="col-sm-3 col-form-label-lg"> Time : </label>
-      <div class="col-sm-3">  
+      <label for="colFormLabel" class="col-md-4 col-form-label-lg"> Time : </label>
+      <div class="col-md-7">  
      <input class="form-control" id="time" type="time" name="time">
      </div>
    </div>
@@ -73,7 +95,7 @@
         </div>
         <div class="modal-footer">
        
-         <input class="btn btn-primary mb-2" type="button" value="Add Task" onclick="addTask()">
+         <input class="btn btn-primary " type="button" value="Add Task" onclick="addTask()">
           <input type="reset" value="Reset" class="btn btn-default" />
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -89,11 +111,10 @@
   
   
   </div>
-  <br>
-   Here are the list of your todos:<br>
+  
     <div id="loader" style="display: none;position:fixed"><img alt="Loading ..." src="images/test.gif"></div>
     
-    <table class="table table-bordered" id="mytable">
+    <table class="table table-bordered table-hover" id="mytable">
 
 <thead>
       <tr>
@@ -113,11 +134,11 @@
            <td> <c:out value="${todo.date}"/></td>
              <td> <c:out value="${todo.time}"/></td>
            <td> <c:out value="${todo.done}"/></td>
-           <td align="center"> <a href="#" class="btn btn-primary a-btn-slide-text" id="editbut" onclick="">
+           <td align="center"> <a href="#" class="btn btn-info a-btn-slide-text" id="editbut" onclick="">
         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         <span><strong>Edit</strong></span>            
     </a>
-    <a href="#" class="btn btn-primary a-btn-slide-text" id="delbut" onclick="deltask(${todo.id})">
+    <a href="#" class="btn btn-danger a-btn-slide-text" id="delbut" onclick="deltask(${todo.id})">
        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
         <span><strong>Delete</strong></span>            
     </a>
@@ -128,6 +149,6 @@
   
     </tbody>
 </table>
-<a href="lgot">Logout</a>
+
 </body>
 </html>

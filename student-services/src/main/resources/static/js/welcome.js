@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$('#myModal').on('hidden.bs.modal', function () {
 		 $('#myForm')[0].reset();
+		 $("#err").hide();
 	})
 	
 	var today = new Date().toISOString().split('T')[0];
@@ -23,13 +24,13 @@ function addTask(){
 			 data: "task=" + task+"&doer=" + doer+"&date=" + date+"&time=" + time,
 			 success: function(response){	
 				 $("#myModal").modal("hide");
-				 $('#myForm')[0].reset();
+				
 				//console.log(response.data);
-			var	markup = "<tr id=\""+response.data+"\"><td>"+task+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td><td align=\"center\"> <a href=\"#\" class=\"btn btn-primary a-btn-slide-text\" id=\"editbut\" onclick=\"\">"
+			var	markup = "<tr id=\""+response.data+"\"><td>"+task+"</td><td>"+doer+"</td><td>"+date+"</td><td>"+time+"</td><td>"+false+"</td><td align=\"center\"> <a href=\"#\" class=\"btn btn-info a-btn-slide-text\" id=\"editbut\" onclick=\"\">"
         +"<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"
         +"<span><strong>Edit</strong></span>"       
     +"</a>&nbsp;"
-    +"<a href=\"#\" class=\"btn btn-primary a-btn-slide-text\" id=\"delbut\" onclick=\"deltask("+response.data+")\">"
+    +"<a href=\"#\" class=\"btn btn-danger a-btn-slide-text\" id=\"delbut\" onclick=\"deltask("+response.data+")\">"
        +"<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>"
         +"<span><strong>Delete</strong></span>"            
     +"</a>"
