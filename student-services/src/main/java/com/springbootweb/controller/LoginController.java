@@ -34,7 +34,7 @@ public class LoginController {
     	    if (!(auth instanceof AnonymousAuthenticationToken))
     	    {
     	    	
-    	    	if(auth.getName().equalsIgnoreCase("test"))
+    	    	if(auth.getAuthorities().iterator().next().getAuthority().equalsIgnoreCase("admin"))
     	    	{
     	    		return "redirect:/welcomeAdmin";
     	    	}

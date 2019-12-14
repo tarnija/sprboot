@@ -37,6 +37,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.requestMatchers(PathRequest.toStaticResources().atCommonLocations())
 				.permitAll().antMatchers("/").permitAll().antMatchers("/verify").permitAll()
 				.antMatchers("/welcomeAdmin").hasAuthority("admin")
+				.antMatchers("/getDetail").hasAuthority("admin")
+				.antMatchers("/delUser").hasAuthority("admin")
 				.antMatchers("/delTodo").hasAuthority("user")
 				.antMatchers("/verifyUserName").permitAll().antMatchers("/addTodo").permitAll()
 				.antMatchers("/verifyUserEmail").permitAll().antMatchers("/login").permitAll().antMatchers("/newUser")

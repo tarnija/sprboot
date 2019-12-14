@@ -68,4 +68,13 @@ TodoRepository tododao;
 		tododao.deleteById(Integer.parseInt(id));
 		
 	}
+
+	public void assigntodo(String username, String adminname) {
+		List<Todo> usertodo=tododao.findTodoByUname(username);
+		for(Todo todo:usertodo) {
+			todo.setUname(adminname);
+			tododao.save(todo);
+		}
+		
+	}
 }

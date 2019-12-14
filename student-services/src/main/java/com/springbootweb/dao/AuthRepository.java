@@ -11,4 +11,8 @@ public interface AuthRepository extends JpaRepository<Auth, Integer>{
 
 	List<Auth> findAuthByName(String name);
 
+	void deleteByName(String name);
+
+	
+
 }
