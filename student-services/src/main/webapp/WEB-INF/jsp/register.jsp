@@ -16,6 +16,30 @@
 
 </head>
 <body>
+<nav class="navbar navbar-inverse bg-info">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
+      <li class="active"><a href="#">Register</a></li>
+    </ul>
+    <form class="navbar-form " action="/action_page.php"  style="float:right">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
 	<div class="container">
 		<div id="signupbox" style="margin-top: 50px"
 			class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
