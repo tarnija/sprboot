@@ -115,7 +115,7 @@ public class UserService {
 UserNew u=userDao.findUserNewById(id);
 String username=u.getName();
 userDao.deleteById(id);
-authDao.deleteByName(username);
+authDao.deleteAuthByName(username);
 		return username;
 	}
 }
