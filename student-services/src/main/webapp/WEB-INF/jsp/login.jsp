@@ -21,18 +21,20 @@ margin-top:-100px;
 position:relative;
 }
 html{
-
+height:100%;
 background-image: url(images/bg.jpg) ;
-	-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
+  background-size: 1200px 600px ;
+  background-position:center 300px;
+  background-repeat: no-repeat;
 }
 .bd{
 height:10rem;
 width:100%;
 }
+.container{
+height:100px;
+}
+
 </style>
 <body>
 
@@ -60,7 +62,7 @@ width:100%;
 </nav>
 <div class="bd">
 	<div class="container">
-		<div id="signupbox" style="margin-top: 10px"
+		<div id="signupbox" 
 			class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info">
 				<div class="panel-heading">
