@@ -12,9 +12,55 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
+<style>
+.im1{
+display: block;
+margin: auto;
+width:100%;
+margin-top:-100px;
+position:relative;
+}
+html{
+
+background-image: url(images/bg.jpg) ;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+}
+.bd{
+height:10rem;
+width:100%;
+}
+</style>
 <body>
+
+<nav class="navbar navbar-inverse bg-info">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="/">Home</a></li>
+      <li class="active"><a href="#">Login</a></li>
+      <li><a href="/newUser">Register</a></li>
+    </ul>
+    <form class="navbar-form " action="/action_page.php"  style="float:right">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+<div class="bd">
 	<div class="container">
-		<div id="signupbox" style="margin-top: 50px"
+		<div id="signupbox" style="margin-top: 10px"
 			class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
 			<div class="panel panel-info">
 				<div class="panel-heading">
@@ -55,6 +101,9 @@
 				</div>
 			</div>
 		</div>
+		
+	</div>
+<!--  	<img src="images/bg.jpg" class="im1">-->
 	</div>
 </body>
 </html>

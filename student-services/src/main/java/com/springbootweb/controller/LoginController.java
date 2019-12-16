@@ -23,7 +23,11 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginController {
 	@Autowired
     LoginService service;
-
+	  @RequestMapping(value="/", method = RequestMethod.GET)
+	  public String showhomepage(ModelMap model,@RequestParam(value = "error", required = false) String error){
+		  return "home";
+	  }
+	  
     @RequestMapping(value="/login", method = RequestMethod.GET)
     public String showLoginPage(ModelMap model,@RequestParam(value = "error", required = false) String error){
     	 if(error != null) {
