@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +27,18 @@ public class NewUserController {
 	UserService userService;
 	@RequestMapping(value="/newUser", method = RequestMethod.GET)
     public String showLoginPage(ModelMap model){
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken))
+	    {
+	    	
+	    	if(auth.getAuthorities().iterator().next().getAuthority().equalsIgnoreCase("admin"))
+	    	{
+	    		return "redirect:/welcomeAdmin";
+	    	}
+	    	else {
+	        return "redirect:/list-todos";
+	    	}
+	    }
         return "register";
     }
 	

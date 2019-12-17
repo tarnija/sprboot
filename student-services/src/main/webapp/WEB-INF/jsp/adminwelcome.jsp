@@ -29,16 +29,29 @@
 <script type="text/javascript" src="js/welcomeadmin.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #222;">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item active"><a class="nav-link" href="#">Welcome</a></li>
+ 
+    </ul>
+  
+   <div  class="collapse navbar-collapse justify-content-end ">
+		<a href="lgot" class="btn btn-outline-info a-btn-slide-text" ><i class="fa fa-sign-out" aria-hidden="true"></i><span><strong>Logout</strong></span></a>
+</div>
+  
+</nav>
+
+
 	<div class="row">
 		<div class="col-md-9">
 			<h2 style="margin-left: 220px;">Welcome admin</h2>
 		</div>
-		<div class="col-md-3">
-
-			<a href="lgot" class="btn btn-outline-info a-btn-slide-text"><i
-				class="fa fa-sign-out" aria-hidden="true"></i><span><strong>Logout</strong></span></a>
-
-		</div>
+		
 	</div>
 	<hr>
 	<table class="table table-bordered table-hover" id="t1">

@@ -21,6 +21,26 @@ margin:auto;
 </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #222;">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+      <li class="nav-item active"><a class="nav-link" href="#">Welcome</a></li>
+ 
+    </ul>
+  
+   <div  class="collapse navbar-collapse justify-content-end ">
+		<a href="lgot" class="btn btn-outline-info a-btn-slide-text" ><i class="fa fa-sign-out" aria-hidden="true"></i><span><strong>Logout</strong></span></a>
+</div>
+  
+</nav>
+
+
+
+
 <div class="row">
 <div class="col-md-9">
 	<h2 style="margin-left:220px;">Welcome ${name}!!</h2>
@@ -29,9 +49,7 @@ margin:auto;
 	<br>
 	 <p style="margin-left:220px;">Here is the list of your task:</p>
 	</div>
-	<div  class="col-md-3">
-		<a href="lgot" class="btn btn-outline-info a-btn-slide-text" ><i class="fa fa-sign-out" aria-hidden="true"></i><span><strong>Logout</strong></span></a>
-</div>
+	
 </div>
 <%--  <h3>Welcome ${name}!!</h3> 
    <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal" id="show">Click here to add a task</button>
