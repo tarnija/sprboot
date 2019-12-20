@@ -33,7 +33,7 @@ public class TodoController {
 		List<Todo> list = service.retrieveTodos(name);
 
 		model.put("todos", list);
-		return "welcome";
+		return "welcomeNew";
 	}
 
 	@RequestMapping(value = "/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")

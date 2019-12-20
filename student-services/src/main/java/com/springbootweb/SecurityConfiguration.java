@@ -40,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/getDetail").hasAuthority("admin")
 				.antMatchers("/delUser").hasAuthority("admin")
 				.antMatchers("/delTodo").hasAuthority("user")
+				.antMatchers("/welcomeNew").hasAuthority("user")
 				.antMatchers("/verifyUserName").permitAll().antMatchers("/addTodo").permitAll()
 				.antMatchers("/verifyUserEmail").permitAll().antMatchers("/login").permitAll().antMatchers("/newUser")
 				.permitAll().antMatchers("/forgetCredentials").permitAll().antMatchers("/restoreCredentials")
