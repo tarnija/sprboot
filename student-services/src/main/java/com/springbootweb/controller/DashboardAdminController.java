@@ -25,7 +25,7 @@ import com.springbootweb.service.TodoService;
 import com.springbootweb.service.UserService;
 
 @Controller
-public class WelcomeController {
+public class DashboardAdminController {
 	@Autowired
 	AdminService adminService;
 	@Autowired

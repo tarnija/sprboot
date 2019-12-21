@@ -43,7 +43,7 @@ public class LoginController {
     	    		return "redirect:/welcomeAdmin";
     	    	}
     	    	else {
-    	        return "redirect:/list-todos";
+    	        return "redirect:/dashboard-user";
     	    	}
     	    }
         return "login";
@@ -61,7 +61,7 @@ String  name=context.getAuthentication().getName();
         model.addAttribute("name", name);
       
 
-        return "redirect:/list-todos";
+        return "redirect:/dashboard-user";
     }
     @RequestMapping(value="/performLogOut", method = RequestMethod.GET)
     public String performLogOut(ModelMap model){

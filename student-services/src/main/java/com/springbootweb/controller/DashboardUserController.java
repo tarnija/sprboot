@@ -23,17 +23,17 @@ import com.springbootweb.service.TodoService;
 
 @Controller
 @SessionAttributes({ "name", "id" })
-public class TodoController {
+public class DashboardUserController {
 	@Autowired
 	TodoService service;
 
-	@RequestMapping(value = "/list-todos", method = RequestMethod.GET)
+	@RequestMapping(value = "/dashboard-user", method = RequestMethod.GET)
 	public String showTodos(ModelMap model) {
 		String name = (String) model.get("name");
 		List<Todo> list = service.retrieveTodos(name);
 
 		model.put("todos", list);
-		return "welcomeNew";
+		return "dashboard";
 	}
 
 	@RequestMapping(value = "/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
