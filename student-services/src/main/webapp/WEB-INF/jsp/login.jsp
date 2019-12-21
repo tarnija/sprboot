@@ -63,7 +63,7 @@ height:100px;
 <div class="bd">
 	<div class="container">
 		<div id="signupbox" 
-			class="mainbox col-md-7 col-md-offset-2 col-sm-8 col-sm-offset-2">
+			class="mainbox col-md-6 col-md-offset-3 col-sm-9 col-sm-offset-2">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<div class="panel-title" >Login</div>
@@ -75,7 +75,7 @@ height:100px;
 						<form method="post" action="/j_spring_security_check" style="align-items:center;">
 							<div class="form-group row">
 								<label for="colFormLabel"
-									class="control-label col-md-3 col-form-label-lg">UserName</label>
+									class="control-label col-md-3 col-md-offset-1 col-form-label-lg">UserName</label>
 								<div class="controls col-md-6">
 									<input type="text" name="name" class="form-control" />
 								</div>
@@ -83,7 +83,7 @@ height:100px;
 							<br>
 							<div class="form-group row">
 								<label for="colFormLabel"
-									class="control-label col-md-3 col-form-label-lg">Password</label>
+									class="control-label col-md-3 col-md-offset-1 col-form-label-lg">Password</label>
 								<div class="controls col-md-6">
 									<input type="password" name="password" class="form-control" />
 								</div>
@@ -92,7 +92,7 @@ height:100px;
 								<input type="submit" class="btn btn-primary mb-3 col-md-12" value="Login" />
 							</div>
 						</form>
-					
+					<br>
 					<br> <a href="/forgetCredentials">Forgot Credentials</a><br>
 					<br> New User? <a href="/newUser">Click here</a> to create
 					account.
