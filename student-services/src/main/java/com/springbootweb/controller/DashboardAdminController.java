@@ -32,14 +32,14 @@ public class DashboardAdminController {
 	UserService userService;
 	@Autowired
 	TodoService todoService;
-	 @RequestMapping(value="/welcomeAdmin", method = RequestMethod.GET)
+	 @RequestMapping(value="/dashboard-admin", method = RequestMethod.GET)
 	    public String welcomeAdmin(ModelMap model){
 		 List<UserNew> users=adminService.retrieveUsers();
 		 SecurityContext context = SecurityContextHolder.getContext();
 			String adminname = context.getAuthentication().getName();
 			users=users.stream().filter(p->!p.getName().equalsIgnoreCase(adminname)).collect(Collectors.toList());
 			model.put("users", users);
-			return "adminwelcome";
+			return "dashboardAdmin";
 		 
 	 }
 	 @RequestMapping(value = "/getDetail", method = RequestMethod.POST, produces = "application/json; charset=utf-8")

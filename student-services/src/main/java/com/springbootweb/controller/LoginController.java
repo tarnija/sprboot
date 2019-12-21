@@ -40,7 +40,7 @@ public class LoginController {
     	    	
     	    	if(auth.getAuthorities().iterator().next().getAuthority().equalsIgnoreCase("admin"))
     	    	{
-    	    		return "redirect:/welcomeAdmin";
+    	    		return "redirect:/dashboard-admin";
     	    	}
     	    	else {
     	        return "redirect:/dashboard-user";

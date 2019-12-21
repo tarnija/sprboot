@@ -33,7 +33,7 @@ public class DashboardUserController {
 		List<Todo> list = service.retrieveTodos(name);
 
 		model.put("todos", list);
-		return "dashboard";
+		return "dashboardUser";
 	}
 
 	@RequestMapping(value = "/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")

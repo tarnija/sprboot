@@ -60,7 +60,7 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 		        if (isUser) {
 		            return "/loginCredentials";
 		        } else if (isAdmin) {
-		            return "/welcomeAdmin";
+		            return "/dashboard-admin";
 		        } else {
 		            throw new IllegalStateException();
 		        }
