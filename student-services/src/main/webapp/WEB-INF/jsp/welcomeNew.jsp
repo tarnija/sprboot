@@ -68,6 +68,11 @@
 				<div class="search-field">
 					<input type="search" class="form-control search" placeholder="Search your tasks...">
 				</div>
+				<!-- <div class="add-new-task">
+					<a href="#" class="btn btn-block a-btn-slide-text">
+						Add New Task
+					</a>
+				</div> -->
 				<div class="menu">
 					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
 						<i class="fa fa-bars" aria-hidden="true"></i>
@@ -83,9 +88,56 @@
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
 					</a>
 				</div>
+				<div class="menu">
+					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+					</a>
+				</div>
 			</div>
 			<div id="summary">
 				<h5>Summary</h5>
+				<div class="summary-details">
+					<div class="summary-section" style="border-right:1px solid #ccc;">
+						<p class="summary-data">
+							<span class="summary-title">Tasks</span>
+							<span class="summary-count">20</span>
+						</p>
+						<p class="summary-data">
+							<span class="summary-title">Mails</span>
+							<span class="summary-count">8</span>
+						</p>
+					</div>
+					<div class="summary-section" style="border-right:1px solid #ccc;">
+						<p class="summary-data">
+							<span class="summary-title">In Progress</span>
+							<span class="summary-count">10</span>
+						</p>
+						<p class="summary-data">
+							<span class="summary-title">Notes</span>
+							<span class="summary-count">15</span>
+						</p>
+					</div>
+					<div class="summary-section" style="border-right:1px solid #ccc;">
+						<p class="summary-data">
+							<span class="summary-title">Completed</span>
+							<span class="summary-count">8</span>
+						</p>						
+						<p class="summary-data">
+							<span class="summary-title">Documents</span>
+							<span class="summary-count">5</span>
+						</p>
+					</div>
+					<div class="summary-section" >
+						<p class="summary-data">
+							<span class="summary-title">Delayed</span>
+							<span class="summary-count">7</span>
+						</p>
+						<p class="summary-data">
+							<span class="summary-title">Reminders</span>
+							<span class="summary-count">4</span>
+						</p>
+					</div>		
+				</div>
 				<div class="progress-container">
 					<canvas id="myChart"></canvas>
 				</div>
