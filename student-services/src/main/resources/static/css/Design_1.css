@@ -22,15 +22,23 @@ html, body {
 }
 
 #myChart {
-	width: 200px; height: 100px;
+	width: 200px; height: 100px; 
 }
 
 #summary {
-	border-bottom: 1px solid #ccc; margin-bottom: 10px; height: 130px; padding: 10px;
+	border-bottom: 1px solid #ccc; margin-bottom: 10px; height: 130px; padding: 10px; 
 }
 
 #summary h5 {
-	margin: 5px;width: 200px;float: left; font-weight: bold; font-size: 18px;
+	margin: 5px;width: 200px;float: left; font-weight: bold; font-size: 18px;position: absolute;
+}
+
+.summary-details {
+	float: left;
+    height: 90px;
+    width: 85%;
+    margin-top: 30px;
+    padding-bottom: 10px;
 }
 
 .side-bar {
@@ -130,14 +138,39 @@ html, body {
     font-size: 13px;
     font-weight: 700;
 }
- .btn{
- height:34px;
- margin:auto;
- font-size: 13px;
+ .btn {
+ 	height:30px;
+ 	margin:auto;
+ 	font-size: 13px;
     font-weight: 700;
  }
 .user-menu-container {
 	margin: 40px 0px;
+}
+
+.summary-data {
+	padding: 0px 15px;
+    height: 25px;
+    margin: 10px 0 0 0;
+}
+
+.summary-section {
+	width: 24%; float: left; height: 100%; /* border-right:1px solid #ccc; */
+}
+
+.summary-count {
+	float: right;
+	margin-right: 5px;
+}
+
+.add-new-task {
+	width: 150px;
+    float: left;
+    text-align: center;
+    border: 1px solid cornflowerblue;
+    margin: 5px 125px;
+    border-radius:3px;
+    height: 35px;
 }
 
 .task-card {
