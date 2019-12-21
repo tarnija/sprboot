@@ -1,6 +1,6 @@
 @font-face {
     font-family: Montserrat;
-    src: url('font/Montserrat-Regular.ttf');
+    src: url('../fonts/Montserrat-Regular.ttf');
 }
 
 * {
@@ -15,6 +15,7 @@ html, body {
 .main-container {
 	width: 100%; height: 100%; padding: 20px 15px;
 	background-color: #fbd0d0;
+	
 }
 
 #summary {
@@ -41,12 +42,13 @@ html, body {
 }
 
 .main-board {
-	width: 80%;
+	width: 100%;
 	height: 100%;
 	float: left;
 	background-color: #ffffff;
 	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
 	padding: 0 10px 10px 10px;
+	
 }
 .propic-container {
 	width: 100%; height: 150px;
@@ -59,9 +61,11 @@ html, body {
 	/*background-color: #8067b7;*/
 	margin: 35px auto 15px auto;;
 	box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
-	background-image: url('images/propic.png');
+	/*background-image: url('../images/bg3.jpg');
 	background-position: center center;
-	background-size: cover; 
+	background-size: cover; */
+	text-align:center;
+	color:gray;
 }
 
 .search-container {
@@ -69,7 +73,11 @@ html, body {
 }
 
 .search-field {
-	width: 300px; float: left;
+	width: 400px; float: left;
+} 
+
+.collbut {
+	width:50px; float: left;
 } 
 
 .search {
@@ -82,6 +90,7 @@ html, body {
 	position: fixed;
     bottom: 70px;
     margin: 0 4%;
+    width:120px;
 }
 .show-all-container {
 	position: fixed;
@@ -101,7 +110,12 @@ html, body {
     font-size: 13px;
     font-weight: 700;
 }
-
+ .btn{
+ height:34px;
+ margin:auto;
+ font-size: 13px;
+    font-weight: 700;
+ }
 .user-menu-container {
 	margin: 40px 0px;
 }
@@ -154,4 +168,89 @@ li {
 
 .task-board-title {
 	padding: 5px 0 0 40px;
+}
+
+ #sidebarCollapse {
+    width: 28px;
+    height: 28px;
+    background: #f5f5f5;
+}
+
+#sidebarCollapse span {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    background: #555;
+    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+}
+#sidebarCollapse span:first-of-type {
+    /* rotate first one */
+    transform: rotate(45deg) translate(2px, 2px);
+}
+
+#sidebarCollapse span:nth-of-type(2) {
+    /* second one is not visible */
+    opacity: 0;
+}
+
+#sidebarCollapse span:last-of-type {
+    /* rotate third one */
+    transform: rotate(-45deg) translate(1px, -1px);
+}
+#sidebarCollapse.active span {
+    /* no rotation */
+    transform: none;
+    /* all bars are visible */
+    opacity: 1;
+    margin: 5px auto;
+}
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    perspective: 1500px; 
+}
+
+#sidebar {
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
+}
+#sidebar.active {
+    margin-left: -300px;
+    transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+}
+@media (max-width: 768px) {
+    /* Reversing the behavior of the sidebar: 
+       it'll be rotated vertically and off canvas by default, 
+       collapsing in on toggle button click with removal of 
+       the vertical rotation.   */
+    #sidebar {
+        margin-left: -250px;
+        transform: rotateY(100deg);
+    }
+   
+    #sidebar.active {
+        margin-left: 0;
+        transform: none;
+    }
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
 }
