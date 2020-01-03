@@ -279,8 +279,7 @@
    
      <div class="form-group row">
       <label for="colFormLabel" class="col-md-3 col-form-label-lg"> Status : </label>
-      <div class="col-md-9">  
-   
+      <div class="col-md-9">     
      <select disabled class="form-control"> 
             <option value="binary">New</option> 
             <option value="linear">Linear Search</option> 
