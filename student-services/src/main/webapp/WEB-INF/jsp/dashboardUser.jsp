@@ -88,7 +88,7 @@
 						<i class="fa fa-envelope-o" aria-hidden="true"></i>
 					</a>
 				</div>
-				<div class="menu">
+				<div class="addTask" data-toggle="modal" data-target="#myModal" id="show">
 					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
 						<i class="fa fa-plus" aria-hidden="true"></i>
 					</a>
@@ -234,6 +234,84 @@
 			</div>
 		</div>
 	</div>
+	  <div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+         
+          <h4 class="modal-title">Add your task:</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form autocomplete="off" method="post" id="myForm">
+        <div class="modal-body">
+         <div id="form">
+  
+  <font color="red" id="err">${errorMessage}</font>
+  <fieldset  class="scheduler-border">
+    
+   <div class="form-group row">
+  <label for="colFormLabel" class="col-md-3 col-form-label-lg">Title : </label>
+    <div class="col-md-9">
+     <input class="form-control" id="task" type="text" name="task">
+     </div>
+     <div class="col-sm-2" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
+    <div class="col-sm-2" id="icn2" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">User Does Not Exists</font></div>
+    </div>
+   
+       <div class="form-group row">
+       <label for="colFormLabel" class="col-sm-3 col-form-label-lg">Descrpition : </label>
+     <div class="col-md-9">  
+      <textarea class="form-control"  rows="4" cols="50"></textarea>
+      </div>
+       <div class="col-sm-2" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
+    <div class="col-sm-2" id="icn2" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">User Does Not Exists</font></div>
+    </div>
+  
+     <div class="form-group row">
+       <label for="colFormLabel" class="col-md-3 col-form-label-lg"> Date : </label>
+    <div class="col-md-9">  
+    <input class="form-control" id="date" type="date" name="date">
+    </div>
+    </div>
+   
+     <div class="form-group row">
+      <label for="colFormLabel" class="col-md-3 col-form-label-lg"> Status : </label>
+      <div class="col-md-9">  
+   
+     <select disabled class="form-control"> 
+            <option value="binary">New</option> 
+            <option value="linear">Linear Search</option> 
+            <option value="interpolation">Interpolation Search</option> 
+        </select> 
+     </div>
+   </div>
+   
+     
+  </fieldset>
+
+  </div>
+        </div>
+        <div class="modal-footer">
+       
+         <input class="btn btn-primary " type="button" value="Add Task" onclick="addTask()">
+          <input type="reset" value="Reset" class="btn btn-default" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+       </form>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="js/doughnut.js"></script>
 </body>

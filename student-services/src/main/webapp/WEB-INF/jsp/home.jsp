@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Task Manager</title>
+<link rel = "icon" href =  
+"images/logo1.png" 
+        type = "image/x-icon"> 
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
