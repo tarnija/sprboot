@@ -1,0 +1,23 @@
+.im1 {
+	display: block;
+	margin: auto;
+	width:60%;
+}
+
+.hea {
+	background-image:url("../images/bg2.jpg");
+	background-position: center center;
+	background-size:contain;
+	width:100vw;
+	height:92%;
+    top:0;
+    text-align: center;
+}
+
+h2 {
+	font-size: 55px;
+    line-height: 1.15;
+    letter-spacing: -3px;
+    font-weight:450;
+  	text-align: center;
+}
