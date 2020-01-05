@@ -71,10 +71,10 @@ var ques;
 function showForm() {
 	$("#sb").prop("disabled",true);
 	$("#ans").val("");
-	$("#sec").css("display","block");
+	$("#sec").css("display","inline-flex");
 	$("#ques").text("Security Question : "+ques);
-	$("#npass").css("display","block");
-	$("#npass2").css("display","block");
+	$("#npass").css("display","inline-flex");
+	$("#npass2").css("display","inline-flex");
 	$("#subm").css("display","block");
 	$("#but").hide();
 	$("#p1").val("");

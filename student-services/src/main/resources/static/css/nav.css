@@ -5,7 +5,7 @@
 }
 
 ul {
-	width: 30%;
+	width: 40%;
 	display: block;
 	text-align: center;
 }
@@ -15,7 +15,7 @@ ul li {
 }
 
 .navbar-nav {
-	 display: inline-block; text-align: center;
+	 display: inline-block; text-align: center;margin-right:30%;
 }
 
 li>a {

@@ -2,22 +2,25 @@
 	display: block;
 	margin: auto;
 	width:60%;
+	max-width:100%;
+	height:auto;
 }
 
-.hea {
-	background-image:url("../images/bg2.jpg");
-	background-position: center center;
-	background-size:contain;
-	width:100vw;
-	height:92%;
-    top:0;
-    text-align: center;
-}
 
-h2 {
-	font-size: 55px;
+
+.hea{
+margin-top: 1rem;
+width:400px;
+    margin-bottom: 0rem;
+    position: relative;
+       margin-left:auto;
+       margin-right:auto;
+       text-align: center;
+}
+h1{
+ font-size: 84px;
     line-height: 1.15;
     letter-spacing: -3px;
     font-weight:450;
-  	text-align: center;
+  text-align: center;
 }

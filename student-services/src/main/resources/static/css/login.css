@@ -1,26 +1,36 @@
-.im1 { 
-	display: block;
-	margin: auto;
-	width:100%;
-	margin-top:-100px;
-	position:relative;
+@font-face {
+    font-family: Montserrat;
+    src: url('../fonts/Montserrat-Medium.ttf');
+}
+html{
+/* height:100%;
+background-image: url(../images/bg.jpg) ;
+  background-size: 1200px 600px ;
+  background-position:center 300px;
+  background-repeat: no-repeat;
+   font-family: "Montserrat"; */
+   background-image: url(../images/c9414e.png) ;
+	background-size: 1436px 200px ;
+	background-position:center 50px;
+	background-repeat: no-repeat;
+	font-family: "Montserrat";
+}
+body{
+	 font-family: "Montserrat";
 }
 
-.bd {
-	height:100%;
-	width:100%;
-	/* background-image:url("../images/bg.jpg"); */
-	background-position: center center;
-	background-size:contain;
-	background-color: blueviolet;
+.bd{
+height:0rem;
+width:100%;
 }
 
-.container {
+.container{
+height:100px;
 }
 
 #signupbox {
-	margin: 0 auto;
-	padding-top: 140px;
+	margin: 0;
+	padding-top: 80px;
 }
 
 .panel.panel-info {
@@ -28,6 +38,7 @@
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
     border-radius: 3px;
     padding-bottom: 15px;
+    width:100%;
 }
 
 
@@ -42,9 +53,8 @@ hr {
 	margin-top: 0;
 }
 
-.form-group.row {
-	padding:10px 50px 0 45px;	
-}
+
+
 
 #submit {
 	height: 35px;
