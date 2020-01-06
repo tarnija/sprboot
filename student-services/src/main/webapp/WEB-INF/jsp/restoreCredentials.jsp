@@ -103,7 +103,9 @@
    
     
    <br>
+   <div class="offset-md-1">
      <a href="/login">Go to login page</a>
+     </div>
 </div>
 </div>
 </div>

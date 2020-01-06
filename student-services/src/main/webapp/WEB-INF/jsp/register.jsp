@@ -54,6 +54,7 @@
 						<legend class="scheduler-border">
 							<h2>REGISTER USER</h2>
 						</legend>
+						<hr>
 						<form autocomplete="off" method="post" id="form1"
 							onsubmit="return mySubmitFunction(event)">
 							<div class="form-group row">
@@ -168,7 +169,9 @@
 							</div>
 						</form>
 					</fieldset><br>
+					<div class="offset-md-1">
 					Already a User? <a href="/login">Click here</a> login.
+					</div>
 				</div>
 			</div>
 		</div>
