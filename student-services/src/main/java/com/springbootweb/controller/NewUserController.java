@@ -114,4 +114,9 @@ public class NewUserController {
 	        responseHeaders.add("Content-Type", "application/json; charset=utf-8"); 
 	        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/profile")
+	public String showWelcomePage() {
+		return "profile";
+	}
 }
