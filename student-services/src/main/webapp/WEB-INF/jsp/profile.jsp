@@ -28,8 +28,8 @@
 				</div>
 				<div class="user-menu-container">
 					<ul>
-						<li><h6>Profile</h6></li>
-						<li><h6>Tasks</h6></li>
+						<li><h6><a href="/profile">Profile</a></h6></li>
+						<li><h6><a href="#">Tasks</a></h6></li>
 						<li>
 							<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Settings</a>
 							<ul class="collapse list-unstyled" id="homeSubmenu">
