@@ -316,3 +316,7 @@ li {
     float: right; 
     margin-right: 20px;
 }
+
+li>h6>a {
+	color: black;
+}
