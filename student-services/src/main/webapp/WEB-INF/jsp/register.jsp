@@ -14,6 +14,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/register.js"></script>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -64,11 +65,11 @@
 										oninput="checkname()" />
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn" style="display: none;">
-									<span class="glyphicon">&#xe013;</span> <font color="green">Valid
+									<i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Valid
 										username</font>
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn2" style="display: none;">
-									<span class="glyphicon">&#xe014;</span> <font color="red">User
+									<i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">User
 										Already Exists</font>
 								</div>
 
@@ -82,11 +83,11 @@
 										id="user_email" oninput="checkemail()" />
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn3" style="display: none;">
-									<span class="glyphicon">&#xe013;</span> <font color="green">Valid
+									<i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Valid
 										email</font>
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn4" style="display: none;">
-									<span class="glyphicon">&#xe014;</span> <font color="red">User
+									<i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">User
 										Already Exists with this email</font>
 								</div>
 							</div>
@@ -100,11 +101,11 @@
 										onkeypress="return AvoidSpace(event)" />
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn5" style="display: none;">
-									<span class="glyphicon">&#xe013;</span> <font color="green">Valid
+									<i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Valid
 										password</font>
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn6" style="display: none;">
-									<span class="glyphicon">&#xe014;</span> <font color="red"></font>
+									<i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red"></font>
 								</div>
 							</div>
 							<br>
@@ -117,11 +118,11 @@
 										onkeypress="return AvoidSpace(event)"></input>
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn7" style="display: none;">
-									<span class="glyphicon">&#xe013;</span> <font color="green">Password
+									<i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Password
 										match</font>
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn8" style="display: none;">
-									<span class="glyphicon">&#xe014;</span> <font color="red">Password
+									<i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">Password
 										do not match</font>
 								</div>
 
@@ -144,7 +145,7 @@
 								</div>
 
 								<div class="col-md-12 offset-md-3" id="icn9" style="display: none;">
-									<span class="glyphicon">&#xe014;</span> <font color="red">Please
+									<i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">Please
 										select a question</font>
 								</div>
 
@@ -158,7 +159,7 @@
 										type="text" name="ans"></input>
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn10" style="display: none;">
-									<span class="glyphicon">&#xe014;</span> <font color="red">This
+									<i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">This
 										field is required</font>
 								</div>
 							</div>
@@ -168,7 +169,9 @@
 							</div>
 						</form>
 					</fieldset><br>
+					<div class="offset-md-1">
 					Already a User? <a href="/login">Click here</a> login.
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,4 @@
-@font-face {
-    font-family: Montserrat;
-    src: url('../fonts/Montserrat-Regular.ttf');
-}
+
 
 * {
 	padding: 0; margin: 0; box-sizing: border-box;
@@ -144,7 +141,7 @@ li {
 	padding: 10px 0 0 50px; list-style: none; 
 }
 li  h6 {
-	font-weight: bold;
+	
 }
 
 .task-board {

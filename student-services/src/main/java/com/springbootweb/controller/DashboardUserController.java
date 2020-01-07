@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,4 +86,9 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 	responseHeaders.add("Content-Type", "application/json; charset=utf-8");
 	return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
 }
+
+	@GetMapping("/profile")
+	public String showWelcomePage() {
+		return "profile";
+	}
 }
