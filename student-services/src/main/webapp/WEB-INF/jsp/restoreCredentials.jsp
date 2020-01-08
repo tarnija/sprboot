@@ -11,6 +11,8 @@
 	 <script type="text/javascript" src="js/restore.js"></script>
 	 <link rel="stylesheet" href="css/nav.css">
 	 <link rel="stylesheet" href="css/restore_credentials.css">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	 
 	 <style type="text/css">
 	 </style>
 </head>
@@ -54,8 +56,8 @@
       <div class="controls col-md-6">
      <input type="text" name="email" class="form-control" oninput="doneTyping()" id="email" />
      </div>
-     <div class="col-md-4 offset-md-6" id="icn" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">User Exists</font></div>
-    <div class="col-md-4 offset-md-6" id="icn2" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">User Does Not Exists</font></div>
+     <div class="col-md-4 offset-md-6" id="icn" style="display: none;"> <i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">User Exists</font></div>
+    <div class="col-md-4 offset-md-6" id="icn2" style="display: none;">  <i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">User Does Not Exists</font></div>
    
   </div>
     
@@ -64,8 +66,8 @@
       <div class="controls col-md-6">
      <input type="text" name="ans" class="form-control" id="ans" oninput="answer()"/>
      </div>
-       <div class="col-md-4 offset-md-6" id="icn3" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">Correct answer</font></div>
-    <div class="col-md-4 offset-md-6" id="icn4" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">Incorrect answer</font></div>
+       <div class="col-md-4 offset-md-6" id="icn3" style="display: none;"> <i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Correct answer</font></div>
+    <div class="col-md-4 offset-md-6" id="icn4" style="display: none;">  <i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">Incorrect answer</font></div>
      </div>
      
      <div class="form-group row" style="display: none;" id="npass">
@@ -73,8 +75,8 @@
       <div class="controls col-md-6 ">
      <input type="password" name="pass" class="form-control" id="p1" disabled="disabled" oninput="pas()" />
      </div>
-       <div class="col-md-4 offset-md-6" id="icn5" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">Password Accurate</font></div>
-    <div class="col-md-4 offset-md-6" id="icn6" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">Inaccurate password</font></div>
+       <div class="col-md-4 offset-md-6" id="icn5" style="display: none;"> <i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Password Accurate</font></div>
+    <div class="col-md-4 offset-md-6" id="icn6" style="display: none;">  <i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">Inaccurate password</font></div>
     
     
      </div>
@@ -84,8 +86,8 @@
       <div class="controls col-md-6">
      <input type="password" name="pass2" class="form-control" id="p2" disabled="disabled" oninput="matchpas()" />
      </div>
-     <div class="col-md-4 offset-md-6" id="icn7" style="display: none;"> <span class="glyphicon">&#xe013;</span> <font color="green">Password match</font></div>
-    <div class="col-md-4 offset-md-6" id="icn8" style="display: none;">  <span class="glyphicon">&#xe014;</span> <font color="red">Password do not match</font></div>
+     <div class="col-md-4 offset-md-6" id="icn7" style="display: none;"> <i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Password match</font></div>
+    <div class="col-md-4 offset-md-6" id="icn8" style="display: none;">  <i class="fa fa-times" aria-hidden="true" style="color:red"></i> <font color="red">Password do not match</font></div>
      
      <br>
      </div>

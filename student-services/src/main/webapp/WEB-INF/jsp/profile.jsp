@@ -14,65 +14,11 @@
 <body>
 	<div class="wrapper main-container">
 		<div class="side-bar" id="sidebar">
-			<div style="height: 15px;">
-				<a href="#" class="btn btn-block a-btn-slide-text" id="sidebarCollapse"	>
-					<i class="fa fa-times" aria-hidden="true"></i>
-				</a>
-			</div>
-			<div class="propic-container">
-				<div class="propic">
-					<i class="fa fa-user" style="font-size: 5.5em;"></i>
-				</div>
-				<div class="username">
-					<h5>Welcome ${name}!!</h5>
-				</div>
-				<div class="user-menu-container">
-					<ul>
-						<li><h6><a href="/profile">Profile</a></h6></li>
-						<li><h6><a href="#">Tasks</a></h6></li>
-						<li>
-							<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Settings</a>
-							<ul class="collapse list-unstyled" id="homeSubmenu">
-								<li><a href="#">Page</a></li>
-								<li><a href="#">Page</a></li>
-								<li><a href="#">Page</a></li>
-							</ul>
-						</li>	
-						<li><h6>Documents</h6></li>
-						<li><h6>Category</h6></li>
-						<li><h6>Notes</h6></li>
-					</ul>
-				</div>
-				<div class="logout-container">
-					<a href="lgot" class="btn btn-block btn-danger a-btn-slide-text">
-						<i class="fa fa-sign-out" aria-hidden="true"></i>
-						<span><strong>Logout</strong></span>
-					</a>
-				</div>
-			</div>
+			<jsp:include page="sideMenu.jsp"></jsp:include>
 		</div>
 		<div class="main-board content">
 			<div class="search-container" style="height: 250px;">
-				<div class="menu">
-					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
-						<i class="fa fa-bars" aria-hidden="true"></i>
-					</a>
-				</div>
-				<div class="notifications">
-					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
-						<i class="fa fa-bell-o" aria-hidden="true"></i>
-					</a>
-				</div>
-				<div class="mail">
-					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
-						<i class="fa fa-envelope-o" aria-hidden="true"></i>
-					</a>
-				</div>
-				<div class="addTask" data-toggle="modal" data-target="#new-task-modal" id="show">
-					<a href="#" class="btn btn-block a-btn-slide-text app-icon">
-						<i class="fa fa-plus" aria-hidden="true"></i>
-					</a>
-				</div>
+				<jsp:include page="actionMenu.jsp"></jsp:include>
 				<div id="profile-pic-container">
 					<form>
   						<input type='file' id="imgInp" />
