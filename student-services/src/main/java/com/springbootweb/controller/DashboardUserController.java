@@ -88,7 +88,12 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 }
 
 	@GetMapping("/profile")
-	public String showWelcomePage() {
+	public String getUserProfile() {
 		return "profile";
+	}
+	
+	@GetMapping("/notes")
+	public String getUserNotes() {
+		return "notes";
 	}
 }
