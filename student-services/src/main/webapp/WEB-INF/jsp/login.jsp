@@ -3,43 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	
 	<link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="css/login.css">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-toggleable-md navbar-dark bg-faded bg-info">
-  <div class="container-fluid">
-    <div class="navbar-header">
-     <a class="navbar-brand" id="site-name" href="/">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="nav-item"><a  class="nav-link" href="/">Home</a></li>
-      <li class="nav-item active"><a class="nav-link" href="#">Login</a></li>
-      <li class="nav-item"><a class="nav-link" href="/newUser">Register</a></li>
-    </ul>
-   <!--  <form class="navbar-form " action="/action_page.php"  style="float:right">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" name="search">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
-  </div>
-</nav>
-<div class="bd">
+	<jsp:include page="navbar.jsp"></jsp:include><div class="bd">
 	<div class="container-fluid">
 	<div class="row">
 		<div  class="col col-md-3" style="width:5%"><img alt="" src="images/login1.png" style="width:70%;height:50%;margin-top:85%"></div>
@@ -87,5 +63,10 @@
 	</div>
 <!--  	<img src="images/bg.jpg" class="im1">-->
 	</div>
+	<script>
+		$(function(){
+			$("#nav-login").addClass("active");
+		});
+	</script>
 </body>
 </html>
