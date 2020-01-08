@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	
+	$("#nav-signup").addClass("active");
+	
 	$('select').change(function(){
 	     if($('select option:selected').text() != "Choose here"){
 	    	 $("#icn9").hide();
