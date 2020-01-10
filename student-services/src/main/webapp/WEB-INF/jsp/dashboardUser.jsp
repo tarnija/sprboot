@@ -90,7 +90,7 @@
 							<span class="task-date">22/12/2019</span>
 						</p>
 					</div>
-					<div class="show-all-container">
+					<div class="show-all-container" id="test">
 						<button class="btn btn-sm btn-block show-all-btn btn-outline-primary">Show All</button>
 					</div>
 				</div>
@@ -180,6 +180,7 @@
           				</button>
         			</div>
         			<div>
+        			  <form autocomplete="off" method="post" id="myForm">
         				<div class="modal-body">
          					<div id="form">
   								<fieldset  class="scheduler-border">
@@ -235,6 +236,7 @@
   								</fieldset>
   							</div>
        	 				</div>
+       	 				</form>
         				<div class="modal-footer">
          					<div style="margin-right: 50%;">
          						<button class="btn btn-danger btn-task" data-dismiss="modal">Close</button>
@@ -251,14 +253,15 @@
     		</div>
   		</div>
   	
-  	<div class="task-card new-task hidden-task" id="demo-task" >
+  	<div class="task-card new-task hidden-task" id="demo-task">
 		<h6 class="task-title" id="demo-task-title"></h6>
-		<p id="demo-task-description"></p>
+		<p class="task-desc"></p>
 		<p>
-			<span id="demo-task-category" class="task-category"></span> 
-			<span id="demo-task-date" class="task-date"></span>
+			<span  class="task-category"></span> 
+			<span  class="task-date"></span>
 		</p>
 	</div>
+	
 	<script src="js/chart.js"></script>
 	<script src="js/doughnut.js"></script>
 	<script src="js/user_dashboard.js"></script>

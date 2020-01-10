@@ -35,14 +35,14 @@
 				<div id="no-note-container">
 					<h1 id="no-note-msg">Nothing Here!!!</h1>
 					<div class="text-center">
-						<button id="add-first-note" class="btn btn-primary">Add Now</button>
+						<button id="add-first-note" class="btn btn-primary" data-toggle="modal" data-target="#new-task-modal" >Add Now</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	
-	<div class="modal" id="new-note-modal">
+	<div class="modal" id="new-task-modal">
     		<div class="modal-dialog modal-dialog-centered modal-lg">
       			<div class="modal-content">
         			<div class="modal-header">
@@ -91,7 +91,7 @@
       			</div>
     		</div>
   		</div>
-	<script src="js/user_dashboard.js"></script>
+
 	<script src="js/notes.js"></script>
 	<script src="js/bootstrap-tagsinput.min.js"></script>
 </body>

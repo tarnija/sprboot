@@ -26,13 +26,31 @@ function addTask(){
 	var doneby = $("#doneby").val();
 	var status = $("#status").val();
 	
-	var demoTask =  $("#demo-task");
-	$(demoTask).find("#demo-task-title").text(taskTitle);
-	$(demoTask).find("#demo-task-description").text(description);
-	$(demoTask).find("#demo-task-date").text("Done By : "+doneby);
-	$(demoTask).find("#demo-task-category").text('Category');
-	$(demoTask).removeClass("hidden-task");
-	$("#new-task-board").append(demoTask);
+	var demoTask =  $("#demo-task").clone();
+	var t1=demoTask;
+	$(t1).attr("id",taskTitle)
+	$(t1).find(".task-title").text(taskTitle);
+	$(t1).find(".task-desc").text(description);
+	$(t1).find(".task-date").text("Done By : "+doneby);
+	$(t1).find(".task-category").text('Category');
+	$(t1).removeClass("hidden-task");
+	
+	
+
+	t1.insertBefore("#test");
+	/*$("#new-task-board").append(t1);*/
 	$("#new-task-modal").modal('hide');
+	$("#myForm")[0].reset();
+	if(($.trim(taskTitle))!="" && ($.trim(description))!="" && ($.trim(assignee))!="" && ($.trim(starton))!="" && ($.trim(doneby))!="" && ($.trim(status))!=""){
+		
+		/*$.ajax({
+			type: "POST",
+			 url: "/addTodo",
+			 data: "taskTitle=" + taskTitle+"&description=" + descriptionr+"&assignee=" + date+"&starton=" + starton+"&doneby="+doneby+"&status="+status,
+			 success: function(response){
+				 
+			 }
+		});*/
+	}
 }
 
