@@ -5,7 +5,7 @@
 	</div>
 	<div class="propic-container">
 		<div class="propic">
-			<i class="fa fa-user" style="font-size: 5.5em;"></i>
+			<i class="fa fa-user" style="font-size: 4.1em;"></i>
 		</div>
 		<div class="username">
 			<h5>Welcome ${name}!!</h5>
@@ -30,7 +30,7 @@
 		</div>
 		<div class="logout-container">
 			<a href="lgot" class="btn btn-block btn-danger a-btn-slide-text">
-				<i class="fa fa-sign-out" aria-hidden="true"></i>
+				<i class="fa fa-sign-out-alt" aria-hidden="true"></i>
 				<span><strong>Logout</strong></span>
 			</a>
 		</div>

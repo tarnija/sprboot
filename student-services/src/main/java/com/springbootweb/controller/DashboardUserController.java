@@ -96,4 +96,9 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 	public String getUserNotes() {
 		return "notes";
 	}
+	
+	@GetMapping("/documents")
+	public String getUserDocs() {
+		return "documents";
+	}
 }
