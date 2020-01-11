@@ -1,10 +1,4 @@
 $(document).ready(function() {
-	$('#sidebarCollapse, .menu').on('click', function() {
-		$('#sidebar').toggleClass('active');
-		$(this).toggleClass('active');
-	});
-	
-	
 	$(".task-card").click(function() { 
 		$("#new-task-modal").modal('show');
 	});

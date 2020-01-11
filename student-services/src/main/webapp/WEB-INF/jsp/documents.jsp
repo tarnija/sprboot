@@ -33,6 +33,7 @@
 				<jsp:include page="actionMenu.jsp"></jsp:include>
 			</div>
 			<div id="docs-container">
+				<div class="row"></div>
 				<div id="no-doc-container">
 					<h1 id="no-doc-msg">Nothing Here!!!</h1>
 					<div class="text-center">
@@ -68,7 +69,7 @@
 						       			<div class="file-upload">
   											<button class="file-upload-btn btn-primary" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Choose File</button>
   											<div class="image-upload-wrap">
-									    		<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+									    		<input class="file-upload-input" type='file' onchange="readURL(this);" accept="*/*" />
 											    <div class="drag-text">
 											   		<h4>Drag and drop a file or select Choose File</h4>
 											    </div>
@@ -101,8 +102,8 @@
       			</div>
     		</div>
   		</div>
-	<script src="js/user_dashboard.js"></script>
 	<script src="js/documents.js"></script>
+	<script src="js/theme-shuffle.js"></script>
 	<script src="js/bootstrap-tagsinput.min.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
 </body>

@@ -23,7 +23,7 @@
 						<li><a href="#">Page</a></li>
 					</ul>
 				</li>	
-				<li><h6>Documents</h6></li>
+				<li><h6><a href="/documents">Documents</a></h6></li>
 				<li><h6>Category</h6></li>
 				<li><h6><a href="/notes">Notes</a></h6></li>
 			</ul>
@@ -35,3 +35,27 @@
 			</a>
 		</div>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$('#sidebarCollapse, .menu').on('click', function() {
+				$('#sidebar').toggleClass('active');
+				$(this).toggleClass('active');
+			});
+			
+		});
+
+		function changeTheme(mode){
+			if(mode.trim().toLowerCase() === "dark") {
+				var style = document.createElement("link");
+				style.rel = "stylesheet";
+				style.id = "dark-theme";
+				style.href = "css/app-dark-theme.css";
+				document.getElementsByTagName("head")[0].appendChild(style);
+			}
+			else if(mode.trim().toLowerCase() === "light"){
+				document.getElementById("dark-theme").remove();
+			}
+		}
+		
+	</script>

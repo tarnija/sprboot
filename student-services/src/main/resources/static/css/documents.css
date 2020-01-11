@@ -6,16 +6,24 @@
 
 #docs-container .row {
 	padding: 15px;
+	display: flex;
+    justify-content: space-between;
+}
+
+.doc.col-md-2 {
+	max-width: 17%;
+	min-width: 17%;
 }
 
 .doc {
-	height: 140px;
+	position: relative;
+	height: 160px;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
     border-radius: 2px;
-    flex: 0%;
-    margin-left: 25px;
+    flex: 0%; 
     text-align: center;
-    padding: 7px 10px;
+    padding: 10px 10px;
+    margin-bottom: 25px;
 }
 
 .doc:hover {
@@ -27,13 +35,18 @@
 }
 
 .doc-name {
-	font-size: 14px; font-weight: 600; margin-bottom: 0;
+	font-size: 14px; 
+	font-weight: 600; 
+	margin-bottom: 0; 
+	margin-top: 6px; 
+	line-height: 25px;
+	width: 80%;
 }
 
 .doc-format {
-	font-size: 70px;
+	font-size: 77px;
+	color: #ccc;
 }
-
 
 #no-doc-msg {
 	color: gainsboro;
@@ -65,36 +78,6 @@
     font-size: 12px;
     font-weight: 500;
     margin-right: 5px;
-}
-
-.note-close {
-	font-size: 30px;
-    font-weight: 700;
-    position: absolute;
-    right: 10px;
-    top: -3px;
-    display: block;
-    color: red;
-    z-index: 1000;
-    cursor: pointer;
-}
-
-.note-delete {
-	width: 20px;
-    height: 20px;
-    font-size: 20px;
-    margin-right: 0px;
-    border-radius: 0;
-    box-shadow: none;
-    position: absolute;
-    right: 16px;
-    top: -6px;
-    background: transparent;
-    color: red;
-}
-
-.note-delete:focus {
-	box-shadow: none;
 }
 
 #new-doc-modal-modal .modal-content {
@@ -158,7 +141,6 @@
 	width: 100%;
 }
 
-
 /***********************************************/
 
 .file-upload {
@@ -180,16 +162,6 @@
     font-weight: 600;
 }
 
-.file-upload-btn:hover {
-  color: #ffffff;
-  transition: all .2s ease;
-  cursor: pointer;
-}
-
-.file-upload-btn:active {
-  border: 0;
-  transition: all .2s ease;
-}
 
 .file-upload-content {
   display: none;
@@ -244,15 +216,63 @@
 	height: 36px; font-size: 16px; 
 }
 
-.remove-image:hover {
-   
+.doc-info {
+	cursor: pointer;
+	color:#6495ed;
+	position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 17px;
 }
 
-.remove-image:active {
-  border: 0;
-  transition: all .2s ease;
+.doc-download {
+	float: right; 
+	cursor: pointer;
+    font-size: 18px;
+	position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
+.doc-delete {
+	color: #ff6347;
+	font-size: 16px;
+	float: right; 
+	cursor: pointer;
+}
+
+.doc-info-data {
+	position: absolute;
+	z-index:1100;
+	width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    font-size:13px;
+    padding: 10px 12px 0 10px;
+    text-align: left;
+    background-color: white;
+    display: none;
+}
+
+.doc-info-data p {
+	margin-top: 0;
+    margin-bottom: 9px;
+}
+
+.doc-info-data p b {
+	margin-right: 5px;
+}
+
+.doc-info-data-close {
+	position: absolute;
+    float: right;
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
+    right: 10px;
+    top: 5px;
+}
 
 /* dark-mode-css*/
 /*

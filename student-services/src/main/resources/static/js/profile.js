@@ -12,11 +12,6 @@ $(document).ready(function() {
 	$("#contact").val("+91 8888888888");
 	$("#email").val("utkarshrathore529@gmail.com");
 	
-	$('#sidebarCollapse, .menu').on('click', function() {
-		$('#sidebar').toggleClass('active');
-		$(this).toggleClass('active');
-	});
-	
 	let dates = "";
 	for(var i=1;i<=31;i++){
 		dates+= "<option value='"+i+"'>"+i+"</option>";

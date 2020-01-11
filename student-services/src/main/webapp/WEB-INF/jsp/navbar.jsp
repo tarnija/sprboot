@@ -5,7 +5,7 @@
     	</div>
     	<ul class="nav navbar-nav">
       		<li id="nav-home" class="nav-item"><a  class="nav-link" href="/">Home</a></li>
-      		<li id="nav-login" class="nav-item"><a class="nav-link" href="#">Login</a></li>
+      		<li id="nav-login" class="nav-item"><a class="nav-link" href="/login">Login</a></li>
       		<li id="nav-signup" class="nav-item"><a class="nav-link" href="/newUser">Register</a></li>
     	</ul>
    <!-- <form class="navbar-form " action="/action_page.php"  style="float:right">

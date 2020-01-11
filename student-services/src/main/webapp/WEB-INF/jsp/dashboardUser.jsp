@@ -84,7 +84,7 @@
 					</div>
 					<div class="task-card new-task">
 						<h6 class="task-title">Title</h6>
-						<p>Some description of the task</p>
+						<p class="">Some description of the task</p>
 						<p>
 							<span class="task-category">Category</span> 
 							<span class="task-date">22/12/2019</span>
@@ -254,8 +254,8 @@
   		</div>
   	
   	<div class="task-card new-task hidden-task" id="demo-task">
-		<h6 class="task-title" id="demo-task-title"></h6>
-		<p class="task-desc"></p>
+		<h6 class="task-title ellipsis" id="demo-task-title"></h6>
+		<p class="task-desc ellipsis"></p>
 		<p>
 			<span  class="task-category"></span> 
 			<span  class="task-date"></span>
