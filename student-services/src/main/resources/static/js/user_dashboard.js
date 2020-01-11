@@ -27,6 +27,7 @@ function addTask(){
 	$(t1).find(".task-desc").text(description);
 	$(t1).find(".task-date").text("Done By : "+doneby);
 	$(t1).find(".task-category").text('Category');
+	
 	$(t1).removeClass("hidden-task");
 	
 	
