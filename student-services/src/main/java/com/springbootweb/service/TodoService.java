@@ -9,71 +9,60 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springbootweb.dao.TodoRepository;
-import com.springbootweb.model.Todo;
+import com.springbootweb.dao.TaskRepository;
+import com.springbootweb.model.Task;
 
 @Service
 public class TodoService {
 @Autowired
-TodoRepository tododao;
-    private static List<Todo> todos = new ArrayList<Todo>();
+TaskRepository taskdao;
+    private static List<Task> todos = new ArrayList<Task>();
     private static int todoCount = 3;
 
-    static {
-		/*
-		 * todos.add(new Todo(1, "admin", "Learn Spring MVC", new Date(), false));
-		 * todos.add(new Todo(2, "admin", "Learn Struts", new Date(), false));
-		 * todos.add(new Todo(3, "admin", "Learn Hibernate", new Date(), false));
-		 */
-    }
+   
 
-    public List<Todo> retrieveTodos(String uname) {
-        List<Todo> filteredTodos = tododao.findTodoByUname(uname);
-        List<String> task=new ArrayList<>();
-        for(Todo todo:filteredTodos) {
-        	String t=todo.getDoer()+" should "+todo.getTask()
-        	+" on "+todo.getDate()+" at "+todo.getTime().getHours()+":"+todo.getTime().getMinutes();
-        task.add(t);
-        }
+    public List<Task> retrieveTasks(String uname) {
+        List<Task> filteredTodos = taskdao.findTaskByUname(uname);
+     
         return filteredTodos;
     }
 
-	public Todo addTodo(String task, String doer, String date, String time, int id, String name) {
-		Todo todo=new Todo();
+	public Task addTask(String taskTitle,String description,String assignee, String starton,String doneby,String status, int id, String name) {
+		Task task=new Task();
 		try {
 		
-		todo.setUserid(id); 
-		todo.setDoer(doer);
-		todo.setTask(task);
+			task.setUserid(id); 
+			task.setDescription(description);
+			task.setAssignee(assignee);
 		SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
-		Date d=f.parse(date);
-		todo.setDate(d);		
-		  SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm");
-		    Date parsedDate = dateFormat.parse(date+" "+time);
-		    Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
-		    todo.setTime(timestamp);
-		    todo.setDone(false);
-		    todo.setUname(name);
-		    tododao.save(todo);
-		    return todo;
+		Date d=f.parse(starton);
+		task.setStartOn(d);
+		Date doneBy=f.parse(doneby);
+		task.setDoneBy(doneBy);
+		task.setTaskTitle(taskTitle);
+		 
+		    task.setStatus(status);
+		    task.setUname(name);
+		    taskdao.save(task);
+		    return task;
 		}
 		catch (Exception e) {
 		e.printStackTrace();
 		}
-		return todo;
+		return task;
 		
 	}
 
-	public void delTodo(String id) {
-		tododao.deleteById(Integer.parseInt(id));
+	public void delTask(String id) {
+		taskdao.deleteById(Integer.parseInt(id));
 		
 	}
 
-	public void assigntodo(String username, String adminname) {
-		List<Todo> usertodo=tododao.findTodoByUname(username);
-		for(Todo todo:usertodo) {
+	public void assigntask(String username, String adminname) {
+		List<Task> usertodo=taskdao.findTaskByUname(username);
+		for(Task todo:usertodo) {
 			todo.setUname(adminname);
-			tododao.save(todo);
+			taskdao.save(todo);
 		}
 		
 	}

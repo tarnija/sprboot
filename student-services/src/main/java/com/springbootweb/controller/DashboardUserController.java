@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.springbootweb.model.Todo;
+import com.springbootweb.model.Task;
 import com.springbootweb.service.TodoService;
 
 @Controller
@@ -31,25 +31,25 @@ public class DashboardUserController {
 	@RequestMapping(value = "/dashboard-user", method = RequestMethod.GET)
 	public String showTodos(ModelMap model) {
 		String name = (String) model.get("name");
-		List<Todo> list = service.retrieveTodos(name);
+		List<Task> list = service.retrieveTasks(name);
 
-		model.put("todos", list);
+		model.put("tasks", list);
 		return "dashboardUser";
 	}
 
-	@RequestMapping(value = "/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "/addTask", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 //	    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
-	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String task,
-			@RequestParam String doer, @RequestParam String date, @RequestParam String time) {
+	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String taskTitle,
+			@RequestParam String description, @RequestParam String assignee, @RequestParam String starton,@RequestParam String doneby,@RequestParam String status) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		String json = null;
 		SecurityContext context = SecurityContextHolder.getContext();
 		String name = context.getAuthentication().getName();
 		int id = (int) model.getAttribute("id");
-		Todo todo = service.addTodo(task, doer, date, time, id, name);
+		Task task = service.addTask(taskTitle, description, assignee, starton,doneby,status, id, name);
 		System.out.println("added");
 
-		result.put("data", todo.getId());
+		result.put("data", task.getId());
 		ObjectMapper map = new ObjectMapper();
 		if (!result.isEmpty()) {
 			try {
@@ -70,7 +70,7 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 	SecurityContext context = SecurityContextHolder.getContext();
 	String name = context.getAuthentication().getName();
 	int id = (int) model.getAttribute("id");
-	 service.delTodo(task);
+	 service.delTask(task);
 	System.out.println("deleted");
 
 	result.put("output", "deleted");

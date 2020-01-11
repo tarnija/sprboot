@@ -14,14 +14,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
 @Getter @Setter @NoArgsConstructor
-public class Todo {
+public class Task {
 	private int userid;
-    private String doer;
-    private Date date;
-    private String task;
+    private String description;
+    private String assignee;
+    private Date startOn;
+    private Date doneBy;
+    private String taskTitle;
     private String uname;
-    private Timestamp time;
-    private boolean isDone;
+    private String status;
+   
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;

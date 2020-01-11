@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.springbootweb.model.Todo;
+import com.springbootweb.model.Task;
 import com.springbootweb.model.UserNew;
 import com.springbootweb.service.AdminService;
 import com.springbootweb.service.TodoService;
@@ -49,7 +49,7 @@ public @ResponseBody ResponseEntity<String> getDetail(ModelMap model, @RequestPa
 	String userdetail=userService.getUserDetails(id);
 	String name=userdetail.split("@#@")[0];
 	String email=userdetail.split("@#@")[1];
-	List<Todo> todo=todoService.retrieveTodos(name);
+	List<Task> todo=todoService.retrieveTasks(name);
 	String authority=userService.getRole(name);
 	result.put("role", authority);
 	result.put("taskcount", todo.size());
@@ -77,7 +77,7 @@ public @ResponseBody ResponseEntity<String> getDetail(ModelMap model, @RequestPa
 		
 	 	String username=userService.deleteUser(id);
 	 	
-	 	todoService.assigntodo(username,adminname);
+	 	todoService.assigntask(username,adminname);
 	 	
 	 	
 	 	result.put("done", "done");

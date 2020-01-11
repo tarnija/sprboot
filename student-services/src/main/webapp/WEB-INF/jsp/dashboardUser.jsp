@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -83,14 +84,17 @@
 					<div class="task-board-title">
 						<h6>New</h6>
 					</div>
+					 <c:forEach items="${tasks}" var="task" begin="0">
 					<div class="task-card new-task">
-						<h6 class="task-title">Title</h6>
-						<p class="">Some description of the task</p>
+						<h6 class="task-title">${task.taskTitle}</h6>
+						<p class="">${task.description}</p>
 						<p>
+						
 							<span class="task-category">Category</span> 
-							<span class="task-date">22/12/2019</span>
+							<span class="task-date">Done By : <fmt:formatDate value="${task.doneBy}" pattern="dd/MM/yyyy" /></span>
 						</p>
 					</div>
+					</c:forEach>
 					<div class="show-all-container" id="test">
 						<button class="btn btn-sm btn-block show-all-btn btn-outline-primary">Show All</button>
 					</div>
@@ -184,6 +188,7 @@
         			  <form autocomplete="off" method="post" id="myForm">
         				<div class="modal-body">
          					<div id="form">
+         					 <font color="red" id="err"></font>
   								<fieldset  class="scheduler-border">
 	   								<div class="form-group row">
 	  									<div class="col-md-2">
