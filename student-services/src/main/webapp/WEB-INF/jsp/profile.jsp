@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/dashboard_common.css">
 	<link rel="stylesheet" href="css/user_dashboard.css">
 	<link rel="stylesheet" href="css/app_common.css">
+	<script src="js/jquery.min.js"></script>
 </head>
 <body>
 	<div class="wrapper main-container">
@@ -102,8 +103,7 @@
 			</div>
 		</div>
 	</div>
-<script src="js/chart.js"></script>
-<script src="js/jquery.min.js"></script>
+	
 <script src="js/profile.js"></script>
 <script src="js/doughnut.js"></script>
 </body>
