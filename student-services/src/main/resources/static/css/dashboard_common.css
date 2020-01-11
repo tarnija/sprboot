@@ -3,6 +3,9 @@
 	background-color: darkturquoise;
 	
 }
+body{
+	background-color: darkturquoise;
+}
 .progress-container{
 	width: 100px; height: 100px; float: right; margin: 0px; margin-right: 50px;
 }
@@ -53,6 +56,8 @@
 	background-color: #ffffff;
 	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);
 	padding: 0 10px 10px 10px;
+	
+	
 	
 }
 .propic-container {
@@ -107,9 +112,9 @@
     width:120px;
 }
 .show-all-container {
-	position: fixed;
-    bottom: 30px;
-    margin: 0 4%;
+	position: inherit;
+bottom: 30px;
+    margin:5% 4%;
 }
 
 
@@ -203,7 +208,9 @@ li {
 
 .board {
 	width: 25%; float: left; height: 90%; padding: 0 10px;    border-right: 1px solid #ccc;
-	overflow-y: auto;
+/*  overflow-y: auto; */
+
+	
 }
 
 .task-board-title {

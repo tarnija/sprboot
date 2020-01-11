@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="css/app_common.css">
 </head>
 <body>
+<div class="bd" style="display:table;width:100%;height:100%" >
 	<div class="wrapper main-container">
 		<div class="side-bar" id="sidebar">
 			<jsp:include page="sideMenu.jsp"></jsp:include>
@@ -169,7 +170,7 @@
 			</div>
 		</div>
 	</div>
-	
+	</div>
 	<div class="modal" id="new-task-modal">
     		<div class="modal-dialog modal-dialog-centered modal-lg">
       			<div class="modal-content">
