@@ -3,8 +3,6 @@ package com.springbootweb.controller;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.springbootweb.model.Task;
+import com.springbootweb.model.Todo;
 import com.springbootweb.service.TodoService;
 
 @Controller
@@ -33,23 +31,25 @@ public class DashboardUserController {
 	@RequestMapping(value = "/dashboard-user", method = RequestMethod.GET)
 	public String showTodos(ModelMap model) {
 		String name = (String) model.get("name");
-		List<Task> list = service.retrieveTasks(name);
+		List<Todo> list = service.retrieveTodos(name);
 
-		model.put("tasks", list);
+		model.put("todos", list);
 		return "dashboardUser";
 	}
 
-	@RequestMapping(value = "/addTask", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String taskTitle, @RequestParam String description, @RequestParam String assignee, @RequestParam String starton,@RequestParam String doneby,@RequestParam String status) {
+	@RequestMapping(value = "/addTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+//	    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
+	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String task,
+			@RequestParam String doer, @RequestParam String date, @RequestParam String time) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		String json = null;
 		SecurityContext context = SecurityContextHolder.getContext();
 		String name = context.getAuthentication().getName();
 		int id = (int) model.getAttribute("id");
-		Task task = service.addTask(taskTitle, description, assignee, starton,doneby,status, id, name);
+		Todo todo = service.addTodo(task, doer, date, time, id, name);
 		System.out.println("added");
 
-		result.put("data", task.getId());
+		result.put("data", todo.getId());
 		ObjectMapper map = new ObjectMapper();
 		if (!result.isEmpty()) {
 			try {
@@ -62,7 +62,6 @@ public class DashboardUserController {
 		responseHeaders.add("Content-Type", "application/json; charset=utf-8");
 		return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
 	}
-	
 	@RequestMapping(value = "/delTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 //    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
 public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestParam String task) {
@@ -71,7 +70,7 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 	SecurityContext context = SecurityContextHolder.getContext();
 	String name = context.getAuthentication().getName();
 	int id = (int) model.getAttribute("id");
-	 service.delTask(task);
+	 service.delTodo(task);
 	System.out.println("deleted");
 
 	result.put("output", "deleted");
@@ -101,17 +100,5 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 	@GetMapping("/documents")
 	public String getUserDocs() {
 		return "documents";
-	}
-	
-	@GetMapping("/settings")
-	public String getAppSettings() {
-		return "settings";
-	}
-	
-	@GetMapping("/app/settings/theme")
-	@ResponseBody
-	public String updateAppTheme(HttpSession session, @RequestParam(value = "theme", defaultValue = "light")String theme) {
-		session.setAttribute("currentTheme", theme);
-		return "success";
 	}
 }

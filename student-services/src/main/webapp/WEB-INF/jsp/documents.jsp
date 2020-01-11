@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List"%>
-<% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,9 +19,6 @@
 	<link rel="stylesheet" href="css/documents.css">
 	<link rel="stylesheet" href="css/bootstrap-tagsinput.css">
 	<link rel="stylesheet" href="css/fa-svg-with-js.css">
-	<c:if test="${currentTheme eq 'dark'}">
-		<link id="dark-theme" rel="stylesheet" href="css/app-dark-theme.css">
-	</c:if>
 </head>
 <body>
 	<div class="wrapper main-container">
@@ -107,6 +103,7 @@
     		</div>
   		</div>
 	<script src="js/documents.js"></script>
+	<script src="js/theme-shuffle.js"></script>
 	<script src="js/bootstrap-tagsinput.min.js"></script>
 	<script src="js/fontawesome-all.min.js"></script>
 </body>

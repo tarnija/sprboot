@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +11,6 @@
 	<link rel="stylesheet" href="css/user_dashboard.css">
 	<link rel="stylesheet" href="css/app_common.css">
 	<script src="js/jquery.min.js"></script>
-	<c:if test="${currentTheme eq 'dark'}">
-		<link id="dark-theme" rel="stylesheet" href="css/app-dark-theme.css">
-	</c:if>
 </head>
 <body>
 	<div class="wrapper main-container">
@@ -110,4 +105,5 @@
 	</div>
 	
 <script src="js/profile.js"></script>
+<script src="js/doughnut.js"></script>
 </body>

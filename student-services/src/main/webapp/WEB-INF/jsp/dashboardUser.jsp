@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List"%>
-<% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +15,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/dashboard_common.css">
 	<link rel="stylesheet" href="css/user_dashboard.css">
-	<link rel="stylesheet" href="css/app_common.css">	
-	<c:if test="${currentTheme eq 'dark'}">
-		<link rel="stylesheet" href="css/app-dark-theme.css" id="dark-theme">
-	</c:if>
+	<link rel="stylesheet" href="css/app_common.css">
 </head>
 <body>
 <div class="bd" style="display:table;width:100%;height:100%" >
@@ -88,17 +83,14 @@
 					<div class="task-board-title">
 						<h6>New</h6>
 					</div>
-					 <c:forEach items="${tasks}" var="task" begin="0">
 					<div class="task-card new-task">
-						<h6 class="task-title">${task.taskTitle}</h6>
-						<p class="">${task.description}</p>
+						<h6 class="task-title">Title</h6>
+						<p class="">Some description of the task</p>
 						<p>
-						
 							<span class="task-category">Category</span> 
-							<span class="task-date">Done By : <fmt:formatDate value="${task.doneBy}" pattern="dd/MM/yyyy" /></span>
+							<span class="task-date">22/12/2019</span>
 						</p>
 					</div>
-					</c:forEach>
 					<div class="show-all-container" id="test">
 						<button class="btn btn-sm btn-block show-all-btn btn-outline-primary">Show All</button>
 					</div>
@@ -192,7 +184,6 @@
         			  <form autocomplete="off" method="post" id="myForm">
         				<div class="modal-body">
          					<div id="form">
-         					 <font color="red" id="err"></font>
   								<fieldset  class="scheduler-border">
 	   								<div class="form-group row">
 	  									<div class="col-md-2">

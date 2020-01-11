@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="java.util.List"%>
-<% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +18,6 @@
 	<link rel="stylesheet" href="css/app_common.css">
 	<link rel="stylesheet" href="css/notes.css">
 	<link rel="stylesheet" href="css/bootstrap-tagsinput.css">
-	<c:if test="${currentTheme eq 'dark'}">
-		<link id="dark-theme" rel="stylesheet" href="css/app-dark-theme.css">
-	</c:if>
 </head>
 <body>
 	<div class="wrapper main-container">
@@ -87,9 +83,9 @@
   							</div>
        	 				</div>
         				<div class="modal-footer">
-         					<button class="btn btn-danger btn-task" id="close-note-btn" data-dismiss="modal">Close</button>
-         					<button class="btn btn-success btn-task" id="add-note-btn" >Add</button>
-	          				<input class="btn btn-warning btn-task" id="reset-note-btn" type="reset"  value="Reset" />
+         						<button class="btn btn-danger btn-task" id="close-note-btn" data-dismiss="modal">Close</button>
+         						<button class="btn btn-success btn-task" id="add-note-btn" >Add</button>
+	          					<input class="btn btn-warning btn-task" id="reset-note-btn" type="reset"  value="Reset" />
         				</div>
 	       			</div>
       			</div>

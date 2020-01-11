@@ -1,6 +1,15 @@
 $(document).ready(function() {
 
 	checkNotes();
+	/*$(".note").click(function() {
+		$(this).addClass("note-view");
+		$(this).find(".note-x").eq(0).addClass("note-close");
+	})
+
+	$(".note-close").click(function() {
+		$(this).removeClass("note-close");
+		$(this).parent().find(".note-view").eq(0).removeClass("note-view");
+	});*/
 
 	$("#add-first-note").click(function() {
 		$("#new-note-modal").modal("show");
@@ -53,7 +62,6 @@ function checkNotes() {
 	if($(".note").length > 0) {
 		$("#no-note-container").css("display","none");
 	}
-	else {
+	else 
 		$("#no-note-container").css("display","block");
-	}
 }
