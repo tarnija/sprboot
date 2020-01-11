@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$("#show").hide();
 	
 	const DOB_INVALID_ERROR = "*Date of birth is not valid";
 	const DOB_EMPTY_ERROR = "*Date of birth is required";
