@@ -15,14 +15,7 @@
 				<li><h6><a href="/profile">Profile</a></h6></li>
 				<li><h6><a href="/dashboard-user">Dashboard</a></h6></li>
 				<li><h6><a href="#">Tasks</a></h6></li>
-				<li>
-					<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Settings</a>
-					<ul class="collapse list-unstyled" id="homeSubmenu">
-						<li><a href="#">Page</a></li>
-						<li><a href="#">Page</a></li>
-						<li><a href="#">Page</a></li>
-					</ul>
-				</li>	
+				<li><h6><a href="/settings">Settings</a></h6></li>
 				<li><h6><a href="/documents">Documents</a></h6></li>
 				<li><h6>Category</h6></li>
 				<li><h6><a href="/notes">Notes</a></h6></li>
@@ -44,18 +37,5 @@
 			});
 			
 		});
-
-		function changeTheme(mode){
-			if(mode.trim().toLowerCase() === "dark") {
-				var style = document.createElement("link");
-				style.rel = "stylesheet";
-				style.id = "dark-theme";
-				style.href = "css/app-dark-theme.css";
-				document.getElementsByTagName("head")[0].appendChild(style);
-			}
-			else if(mode.trim().toLowerCase() === "light"){
-				document.getElementById("dark-theme").remove();
-			}
-		}
 		
 	</script>

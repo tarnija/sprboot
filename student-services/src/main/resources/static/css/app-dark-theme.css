@@ -14,3 +14,20 @@ body, a , .propic, .app-icon {
 #switch-theme label:after {
 	background-color: #333;
 }
+
+li>h6>a {
+	color: #fff;
+}
+
+.model-content {
+	background-color: #444 !important;
+}
+
+#new-note-modal .modal-content {
+	background-color: #444 !important;
+}
+
+button.close {
+	color: #fff !important;
+    font-size: 30px !important;
+}
