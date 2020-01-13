@@ -3,6 +3,8 @@ package com.springbootweb.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -38,9 +40,7 @@ public class DashboardUserController {
 	}
 
 	@RequestMapping(value = "/addTask", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
-//	    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
-	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String taskTitle,
-			@RequestParam String description, @RequestParam String assignee, @RequestParam String starton,@RequestParam String doneby,@RequestParam String status) {
+	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String taskTitle, @RequestParam String description, @RequestParam String assignee, @RequestParam String starton,@RequestParam String doneby,@RequestParam String status) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		String json = null;
 		SecurityContext context = SecurityContextHolder.getContext();
@@ -62,6 +62,7 @@ public class DashboardUserController {
 		responseHeaders.add("Content-Type", "application/json; charset=utf-8");
 		return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
 	}
+	
 	@RequestMapping(value = "/delTodo", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
 //    public String addTodos(ModelMap model,@RequestParam String task,@RequestParam String doer,@RequestParam String date,@RequestParam String time){
 public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestParam String task) {
@@ -92,13 +93,25 @@ public @ResponseBody ResponseEntity<String> delTodos(ModelMap model, @RequestPar
 		return "profile";
 	}
 	
-	@GetMapping("/notes")
+	/*@GetMapping("/notes")
 	public String getUserNotes() {
 		return "notes";
-	}
+	}*/
 	
 	@GetMapping("/documents")
 	public String getUserDocs() {
 		return "documents";
+	}
+	
+	@GetMapping("/settings")
+	public String getAppSettings() {
+		return "settings";
+	}
+	
+	@GetMapping("/app/settings/theme")
+	@ResponseBody
+	public String updateAppTheme(HttpSession session, @RequestParam(value = "theme", defaultValue = "light")String theme) {
+		session.setAttribute("currentTheme", theme);
+		return "success";
 	}
 }

@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List"%>
+<% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,10 @@
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="css/dashboard_common.css">
 	<link rel="stylesheet" href="css/user_dashboard.css">
-	<link rel="stylesheet" href="css/app_common.css">
+	<link rel="stylesheet" href="css/app_common.css">	
+	<c:if test="${currentTheme eq 'dark'}">
+		<link rel="stylesheet" href="css/app-dark-theme.css" id="dark-theme">
+	</c:if>
 </head>
 <body>
 <div class="bd" style="display:table;width:100%;height:100%" >
