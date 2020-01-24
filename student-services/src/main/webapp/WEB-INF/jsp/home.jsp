@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="context" value="/task-manager/app" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +19,7 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<div class="hea">
 		<h1>Organize it all with us</h1>
-		<a href="/login" class="btn btn-danger" >
+		<a href="${context}/login" class="btn btn-danger" >
 			<span><strong>Click here to begin</strong></span>
 		</a>
 	</div>

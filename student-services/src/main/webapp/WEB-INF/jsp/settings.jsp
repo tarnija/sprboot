@@ -1,19 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="context" value="/task-manager/app" />
 <% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Settings</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/dashboard_common.css">
-	<link rel="stylesheet" href="css/app_common.css">
-	<link rel="stylesheet" href="css/settings.css">
-	<script src="js/jquery.min.js"></script>
+<head> 
+	<jsp:include page="commons/masterHeader.jsp"></jsp:include>
+	<link rel="stylesheet" href="${context}/css/dashboard_common.css">
+	<link rel="stylesheet" href="${context}/css/app_common.css">
+	<link rel="stylesheet" href="${context}/css/settings.css">
 	<c:if test="${currentTheme eq 'dark'}">
-		<link id="dark-theme" rel="stylesheet" href="css/app-dark-theme.css">
+		<link id="dark-theme" rel="stylesheet" href="${context}/css/app-dark-theme.css">
 	</c:if>
 </head>
 <body>
@@ -41,6 +38,5 @@
 			</div>
 		</div>
 	</div>
-	
-	<script src="js/settings.js"></script>
+	<script src="${context}/js/settings.js"></script>
 </body>

@@ -1,18 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="/task-manager/app" />
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<jsp:include page="commons/masterHeader.jsp"></jsp:include>
 	<link rel="stylesheet" href="css/nav.css">
 	<link rel="stylesheet" href="css/login.css">
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include><div class="bd">
@@ -50,9 +44,9 @@
 								<input type="submit" class="btn btn-primary btn-block btn-md " value="Login" />
 							</div>
 						</form>
-					<div class="offset-md-1">
-					<a href="/forgetCredentials">Forgot Credentials</a><br>
-					<br> New User? <a href="/newUser">Click here</a> to create
+					<div class="offset-md-1 pt-4">
+					<a href="${context}/user/credentials/forget">Forgot Credentials</a><br>
+					<br> New User? <a href="${context}/signup">Click here</a> to create
 					account.
 					</div>
 					 

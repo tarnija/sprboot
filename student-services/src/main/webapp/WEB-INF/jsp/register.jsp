@@ -1,17 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="/task-manager/app" />
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Register</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/nav.css">
-	<link rel="stylesheet" href="css/register.css">
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/register.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<jsp:include page="commons/masterHeader.jsp"></jsp:include>
+	<link rel="stylesheet" href="${context}/css/nav.css">
+	<link rel="stylesheet" href="${context}/css/register.css">
+	<script src="${context}/js/register.js"></script>
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
@@ -34,8 +29,8 @@
 								<label for="colFormLabel"
 									class="control-label col-md-3 col-form-label-lg">Name</label>
 								<div class="controls col-md-9">
-									<input type="text" id="uname" name="name" class="form-control"
-										oninput="checkname()" />
+									<input type="text" id="username" name="name" class="form-control"
+										oninput="checkIfUserExistsByUsername()" />
 								</div>
 								<div class="col-md-12 offset-md-3" id="icn" style="display: none;">
 									<i class="fa fa-check" aria-hidden="true" style="color:green"></i> <font color="green">Valid
@@ -108,7 +103,7 @@
 									a Security Question</label>
 								<div class="dropdown controls col-md-9">
 
-									<select class="form-control" id="sel1" name="ques">
+									<select class="form-control" id="security-question" name="ques">
 										<option value="" selected disabled hidden>Choose here</option>
 										<option>What's your favourite colour?</option>
 										<option>What's your father's name?</option>
@@ -143,7 +138,7 @@
 						</form>
 					</fieldset><br>
 					<div class="offset-md-1">
-					Already a User? <a href="/login">Click here</a> login.
+					Already a User? <a href="${context}/login">Click here</a> login.
 					</div>
 				</div>
 			</div>
@@ -153,5 +148,4 @@
 		</div>
 	</div>
 </body>
->>>>>>> branch 'master' of https://github.com/tarnija/sprboot.git
 </html>
