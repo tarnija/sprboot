@@ -27,19 +27,18 @@ public class UserController extends BaseController {
 	@Autowired
 	private LoginService userService;
 
-	
-
 	@GetMapping("/dashboard")
 	public String showTodos(ModelMap map) {
 		if(!StringUtils.isEmpty(getLoggedInUserName())) {
 			UserNew user = userService.findUser(getLoggedInUserName());
 			map.put("user", user);
+			List<Task> tasks = taskService.getAllUserTask(user.getId());
+			System.out.println(tasks.size());
+			map.put("tasks", tasks);
+			map.put("title", "Dashboard");
+			map.put("currentUserName", getLoggedInUserName());
+			return "dashboardUser";
 		}
-		String name = (String) map.get("userName");
-		List<Task> list = taskService.retrieveTasks(name);
-		map.put("tasks", list);
-		map.put("title", "Dashboard");
-		map.put("currentUserName", getLoggedInUserName());
-		return "dashboardUser";
+		return "redirect:/task-manager/app/login/";
 	}
 }

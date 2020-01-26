@@ -15,10 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = AppURLs.BASE_URL_APP)
 public class LoginController extends BaseController {
 	
-	/*
-	 * @Autowired private LoginServiceImpl service;
-	 */
-	  
 	@GetMapping("/home")
 	public String showhomepage(@RequestParam(value = "error", required = false) String error){
 		return getUserLoggedInStatus("home");
@@ -32,15 +28,6 @@ public class LoginController extends BaseController {
 		map.put("title", "Login");
         return getUserLoggedInStatus("login");
     }
-
-	/*
-	 * @GetMapping("/loginCredentials") public String
-	 * showWelcomePage(@ModelAttribute Model model){ UserNew userNew =
-	 * service.findUser(getLoggedInUserName()); model.addAttribute("id",
-	 * userNew.getId()); model.addAttribute("userName", userNew.getName());
-	 * model.addAttribute("title", "Dashboard"); return
-	 * "redirect:/app/user/dashboard"; }
-	 */
 
 	@GetMapping("/performLogOut")
     public String performLogOut(ModelMap model){

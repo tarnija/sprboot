@@ -37,4 +37,9 @@ public class TaskServiceImpl implements TaskService {
 	public Task addTask(Task task) {
 		return taskdao.save(task);
 	}
+
+	@Override
+	public List<Task> getAllUserTask(Long userId) {
+		return taskdao.findTaskByUserId(userId);
+	}
 }

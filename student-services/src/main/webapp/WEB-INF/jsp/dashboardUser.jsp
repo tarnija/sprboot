@@ -82,7 +82,7 @@
 							<h6>New</h6>
 							<hr>
 						</div>
-					 	<c:forEach items="${tasks}" var="task" begin="0">
+					 	<c:forEach items="${tasks}" var="task">
 						<div class="task-card new-task">
 							<h6 class="task-title">${task.taskTitle}</h6>
 							<p class="">${task.description}</p>

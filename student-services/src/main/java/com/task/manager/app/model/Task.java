@@ -3,15 +3,17 @@ package com.task.manager.app.model;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
+@Table(name = "task")
 public class Task extends BaseEntity { 
 	
-	private int userid;
+	private Long userId;
     private String description;
     private String assignee;
     
@@ -24,12 +26,12 @@ public class Task extends BaseEntity {
     private String userName;
     private String status;
 
-    public int getUserid() {
-		return userid;
+    public Long getUserid() {
+		return userId;
 	}
 	
-    public void setUserid(int userid) {
-		this.userid = userid;
+    public void setUserid(Long userId) {
+		this.userId = userId;
 	}
 	
 	public String getDescription() {
@@ -99,9 +101,9 @@ public class Task extends BaseEntity {
 		this.commonData = commonData;
 	}
 	
-	public Task(int userid, String description, String assignee, Date startOn, Date doneBy, String taskTitle,
+	public Task(Long userId, String description, String assignee, Date startOn, Date doneBy, String taskTitle,
 		String username, String status) {
-		this.userid = userid;
+		this.userId = userId;
 		this.description = description;
 		this.assignee = assignee;
 		this.startOn = startOn;

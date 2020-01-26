@@ -9,4 +9,5 @@ import com.task.manager.app.model.Task;
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
 	List<Task> findTaskByUserName(String userName);
+	List<Task> findTaskByUserId(Long userId);
 }
