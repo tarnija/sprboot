@@ -4,23 +4,22 @@ package com.task.manager.app.model;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
-import org.joda.time.LocalDate;
+import java.util.Date;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Getter 
-@Setter 
-@NoArgsConstructor
 public class Task extends BaseEntity { 
 	
 	private int userid;
     private String description;
     private String assignee;
-    private LocalDate startOn;
-    private LocalDate doneBy;
+    
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date startOn;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date doneBy;
     private String taskTitle;
     private String userName;
     private String status;
@@ -49,19 +48,19 @@ public class Task extends BaseEntity {
 		this.assignee = assignee;
 	}
 	
-	public LocalDate getStartOn() {
+	public Date getStartOn() {
 		return startOn;
 	}
 	
-	public void setStartOn(LocalDate startOn) {
+	public void setStartOn(Date startOn) {
 		this.startOn = startOn;
 	}
 	
-	public LocalDate getDoneBy() {
+	public Date getDoneBy() {
 		return doneBy;
 	}
 	
-	public void setDoneBy(LocalDate doneBy) {
+	public void setDoneBy(Date doneBy) {
 		this.doneBy = doneBy;
 	}
 	
@@ -100,7 +99,7 @@ public class Task extends BaseEntity {
 		this.commonData = commonData;
 	}
 	
-	public Task(int userid, String description, String assignee, LocalDate startOn, LocalDate doneBy, String taskTitle,
+	public Task(int userid, String description, String assignee, Date startOn, Date doneBy, String taskTitle,
 		String username, String status) {
 		this.userid = userid;
 		this.description = description;

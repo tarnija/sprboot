@@ -23,18 +23,25 @@ function addTask(){
 	var starton = $("#starton").val();
 	var doneby = $("#doneby").val();
 	var status = $("#status").val();	
-	if(($.trim(taskTitle))!="" && ($.trim(description))!="" && ($.trim(assignee))!="" && ($.trim(starton))!="" && ($.trim(doneby))!="" && ($.trim(status))!="") {		
+	var userid = $("#userId").val();	
+	
+	if(($.trim(taskTitle))!="" && ($.trim(description))!="" && ($.trim(assignee))!="" && ($.trim(starton))!="" && ($.trim(doneby))!="" && ($.trim(status))!="" && ($.trim(userid))!="") {		
+		
+		var task = {
+			"taskTitle": taskTitle,
+			"description": description,
+			"assignee": assignee,
+			"startOn": starton,
+			"doneBy": doneby,
+			"status": status,
+			"userid": userid
+		};
+		
 		$.ajax({
 			type: "POST",
-			url: "/task",
-			data: {
-				"taskTitle": taskTitle,
-				"description": description,
-				"assignee": assignee,
-				"starton": starton,
-				"doneby": doneby,
-				"status": status
-			},
+			url: "../user/task",
+			contentType : 'application/json',
+			data: JSON.stringify(task),
 			success: function(response){
 				$("#err").hide();
 				var demoTask =  $("#demo-task").clone();
@@ -45,7 +52,7 @@ function addTask(){
 				$(t1).find(".task-date").text("Done By : "+doneby);
 				$(t1).find(".task-category").text('Category');
 				$(t1).removeClass("hidden-task");
-				t1.insertBefore("#test");
+				$("#new-task-board").append(t1);
 				$("#new-task-modal").modal('hide');
 				$("#myForm")[0].reset();
 				
@@ -62,9 +69,11 @@ function addTask(){
 					$("#show-all-container-delayed").show();
 				}
 			 },
-			 error: function(e){
-    		    alert('Error: ' + e);
-    		}
+			 error: function (xhr, ajaxOptions, thrownError) {
+				console.error("Error occured while adding Task:")
+			    console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+			    console.error(xhr.responseJSON.message);
+			}
 		});
 	}
 	else {

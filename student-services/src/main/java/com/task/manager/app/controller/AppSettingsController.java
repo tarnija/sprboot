@@ -13,7 +13,7 @@ import com.task.manager.app.utils.AppURLs;
 
 @Controller
 @RequestMapping(value = AppURLs.BASE_URL_APP_SETTINGS)
-public class AppSettingsController {
+public class AppSettingsController extends BaseController {
 
 	@GetMapping("/")
 	public String getAppSettings(ModelMap map) {

@@ -9,7 +9,7 @@ import com.task.manager.app.utils.AppURLs;
 
 @Controller
 @RequestMapping(value = AppURLs.BASE_URL_APP_USERS)
-public class ProfileController {
+public class ProfileController extends BaseController {
 
 	@GetMapping("/profile")
 	public String getUserProfile(ModelMap map) {

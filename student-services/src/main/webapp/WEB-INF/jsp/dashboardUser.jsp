@@ -15,6 +15,7 @@
 	</c:if>
 </head>
 <body>
+<input id="userId" type="hidden" value="${user.id}" />
 	<div id="dashboard-user">
 		<div class="wrapper main-container">
 			<div class="side-bar" id="sidebar">

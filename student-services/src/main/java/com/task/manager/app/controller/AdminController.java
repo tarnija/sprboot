@@ -30,7 +30,7 @@ import com.task.manager.app.utils.AppUtils;
 
 @Controller
 @RequestMapping(value = AppURLs.BASE_URL_APP_ADMIN)
-public class AdminController {
+public class AdminController extends BaseController {
 
 	@Autowired
 	private AdminService adminService;

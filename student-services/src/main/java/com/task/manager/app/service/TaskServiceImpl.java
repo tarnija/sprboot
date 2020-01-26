@@ -2,7 +2,6 @@ package com.task.manager.app.service;
 
 import java.util.List;
 
-import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -24,12 +23,6 @@ public class TaskServiceImpl implements TaskService {
     }
 
 	@Override
-	public Task addTask(String taskTitle, String description, String assignee, String starton, String doneby, String status, int userId, String username) {
-		Task task=new Task(userId, description, assignee, new LocalDate(starton), new LocalDate(doneby), taskTitle, username, status);
-		return taskdao.save(task);
-	}
-
-	@Override
 	public void deleteTask(String taskId) {
 		taskdao.deleteById(Long.parseLong(taskId));
 	}
@@ -38,5 +31,10 @@ public class TaskServiceImpl implements TaskService {
 	public void assignTask(String username, String adminname) {
 		List<Task> userTasks= retrieveTasks(username);
 		userTasks.stream().forEach( task -> task.setUserName(username));
+	}
+
+	@Override
+	public Task addTask(Task task) {
+		return taskdao.save(task);
 	}
 }

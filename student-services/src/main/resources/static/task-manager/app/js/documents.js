@@ -87,11 +87,10 @@ function addDoc(){
 	var filename = $("#docname").val();
 	var extension = $("#extension").val();
 	var filetype = $("#filetype").val();
-	var filesize = $("#filesize").val()
+	var filesize = $("#filesize").val();
 	var uploadedon = new Date().toLocaleDateString();
 	var modifiedon = new Date().toLocaleDateString();
 	var docicon = "alt";
-	[]
 	if(COMPRESSED_FORMATS.includes(extension.toLowerCase())){
 		docicon = "archive";
 	}
@@ -142,6 +141,30 @@ function addDoc(){
 	doc += "</span>";
 	doc += "</p>";
 	doc += "</div>";
+	
+	var form = new FormData();
+	form.append("file", $('#user-file').prop('files')[0]);
+	
+	/*var filename = $("#docname").val();
+	var extension = $("#extension").val();
+	var filetype = $("#filetype").val();
+	var filesize = $("#filesize").val();*/
+	$.ajax({
+		url:"../documents",
+		type: "POST",
+		data:form,
+		contentType: false,
+        processData: false,
+		success:function(response){
+			
+		},
+		error: function (xhr, ajaxOptions, thrownError) {
+			clearModal();
+			console.error("Error occured while uploading file:")
+	        console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+	        console.error(xhr.responseJSON.message);
+		}
+	});
 	
 	$("#docs-container .row").last().append(doc);
 	removeUpload();

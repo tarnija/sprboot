@@ -7,13 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.task.manager.app.service.UserServiceImpl;
 import com.task.manager.app.utils.AppURLs;
 
 @Controller
-@SessionAttributes("name")
 @RequestMapping(value = AppURLs.BASE_URL_APP_USERS_CREDENTIIALS)
 public class CredentialsController extends BaseController {
 

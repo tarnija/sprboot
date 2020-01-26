@@ -3,14 +3,7 @@ package com.task.manager.app.model;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 @Entity
-@Getter 
-@Setter 
-@NoArgsConstructor
 public class UserNew extends BaseEntity {
 	
 	private String name;

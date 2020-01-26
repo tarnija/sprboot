@@ -7,12 +7,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,19 +25,16 @@ import com.task.manager.app.utils.AppUtils;
 @Controller
 @SessionAttributes({ "userName", "id" })
 @RequestMapping(value = AppURLs.BASE_URL_APP_USERS)
-public class TaskController {
+public class TaskController extends BaseController {
 
 	@Autowired
 	private TaskService taskService;
 	
-	@PostMapping(value = "/task", produces =  MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<String> addTodos(ModelMap model, @RequestParam String taskTitle, @RequestParam String description, @RequestParam String assignee, @RequestParam String starton,@RequestParam String doneby,@RequestParam String status) {
+	@PostMapping(value = "/task", produces =  MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<String> addTodos(@RequestBody(required = false) Task task) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		SecurityContext context = SecurityContextHolder.getContext();
-		String name = context.getAuthentication().getName();
-		int id = (int) model.getAttribute("id");
-		Task task = taskService.addTask(taskTitle, description, assignee, starton,doneby,status, id, name);
-		result.put("data", task.getId());
+		Task addedTask = taskService.addTask(task);
+		result.put("data", addedTask.getId());
 		String response = AppUtils.convertMapToStr(result);
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
