@@ -63,7 +63,7 @@ function addTask(){
 				$(t1).find(".task-date").text("Done By : "+doneby);
 				$(t1).find(".task-category").text('Category');
 				$(t1).removeClass("hidden-task");
-				$("#new-task-board").prepend(t1);
+				$(t1).insertAfter("#new-task-board .task-board-title");
 				$("#new-task-modal").modal('hide');
 				$("#myForm")[0].reset();
 				
