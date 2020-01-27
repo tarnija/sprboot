@@ -1,6 +1,17 @@
 $(document).ready(function() {
 	
-	$(".show-all-container").hide();
+	if($("#delayed-task-board .task-card").length <10){
+		$("#show-all-container-delayed").hide();
+	}
+	if($("#new-task-board .task-card").length <10){
+		$("#show-all-container-new").hide();
+	}
+	if($("#progress-task-board .task-card").length <10){
+		$("#show-all-container-progress").hide();
+	}
+	if($("#completed-task-board .task-card").length <10){
+		$("#show-all-container-completed").hide();
+	}
 	
 	$(".task-card").click(function() { 
 		$("#new-task-modal").modal('show');
@@ -52,27 +63,21 @@ function addTask(){
 				$(t1).find(".task-date").text("Done By : "+doneby);
 				$(t1).find(".task-category").text('Category');
 				$(t1).removeClass("hidden-task");
-				$("#new-task-board").append(t1);
+				$("#new-task-board").prepend(t1);
 				$("#new-task-modal").modal('hide');
 				$("#myForm")[0].reset();
 				
 				if($(".new-task").length >= 10 ){
+					$("#new-task-board .task-card").last().remove();
 					$("#show-all-container-new").show();
-				}
-				if($(".progress-task").length >= 10 ){
-					$("#show-all-container-progress").show();
-				}
-				if($(".completed-task").length >= 10 ){
-					$("#show-all-container-completed").show();
-				}
-				if($(".delayed-task").length >= 10 ){
-					$("#show-all-container-delayed").show();
 				}
 			 },
 			 error: function (xhr, ajaxOptions, thrownError) {
 				console.error("Error occured while adding Task:")
-			    console.error(xhr.responseJSON.status, xhr.responseJSON.error);
-			    console.error(xhr.responseJSON.message);
+				if(xhr.responseJSON){
+				    console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+				    console.error(xhr.responseJSON.message);
+				}
 			}
 		});
 	}
