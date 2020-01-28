@@ -150,16 +150,16 @@ function addDoc(){
 	var filetype = $("#filetype").val();
 	var filesize = $("#filesize").val();*/
 	$.ajax({
-		url:"../documents",
+		url:"../documents/"+1,
 		type: "POST",
 		data:form,
 		contentType: false,
         processData: false,
+        enctype: 'multipart/form-data',
 		success:function(response){
 			
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
-			clearModal();
 			console.error("Error occured while uploading file:")
 	        console.error(xhr.responseJSON.status, xhr.responseJSON.error);
 	        console.error(xhr.responseJSON.message);

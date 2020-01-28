@@ -1,8 +1,5 @@
 $(document).ready(function() {
 	
-	if($("#delayed-task-board .task-card").length <10){
-		$("#show-all-container-delayed").hide();
-	}
 	if($("#new-task-board .task-card").length <10){
 		$("#show-all-container-new").hide();
 	}
@@ -38,6 +35,9 @@ function addTask(){
 	
 	if(($.trim(taskTitle))!="" && ($.trim(description))!="" && ($.trim(assignee))!="" && ($.trim(starton))!="" && ($.trim(doneby))!="" && ($.trim(status))!="" && ($.trim(userid))!="") {		
 		
+		starton = starton.split("-").reverse().join("-");
+		doneby = doneby.split("-").reverse().join("-");
+		
 		var task = {
 			"taskTitle": taskTitle,
 			"description": description,
@@ -47,6 +47,9 @@ function addTask(){
 			"status": status,
 			"userid": userid
 		};
+		
+		starton = starton.split("-").reverse().join("/");
+		doneby = doneby.split("-").reverse().join("/");
 		
 		$.ajax({
 			type: "POST",

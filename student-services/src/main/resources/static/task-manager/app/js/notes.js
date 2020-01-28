@@ -26,26 +26,43 @@ $(document).ready(function() {
 			tags.push($(this).text());
 		});
 
-		$.ajax({
-			url:"../notes",
-			type: "POST",
-			data:{
-				title:noteTitle,
-				content:noteContent,
-				tags:tags
-			},
-			success:function(response){
-				$("#notes-container").append(response);
-				clearModal();
-				$("#no-note-container").hide();
-			},
-			error: function (xhr, ajaxOptions, thrownError) {
-				clearModal();
-				console.error("Error occured while adding Note:")
-		        console.error(xhr.responseJSON.status, xhr.responseJSON.error);
-		        console.error(xhr.responseJSON.message);
-			}
-		});
+		if(noteTitle.trim() === ""){
+			$("#title").addClass("empty-field-error");
+			alert("All fields are required");
+			return false;
+		}
+		else if(noteContent.trim() === ""){
+			alert("All fields are required");
+			return false;
+		}
+		else if(tags.length === 0){
+			alert("Add atleast one tag");
+			return false;
+		}
+		else {
+			$.ajax({
+				url:"../notes",
+				type: "POST",
+				data:{
+					title:noteTitle,
+					content:noteContent,
+					tags:tags
+				},
+				success:function(response){
+					$("#notes-container").append(response);
+					clearModal();
+					$("#no-note-container").hide();
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+					clearModal();
+					console.error("Error occured while adding Note:")
+					if(xhr.responseJSON){
+			        	console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+				        console.error(xhr.responseJSON.message);
+			        }
+				}
+			});
+		}
 		$("#close-note-btn").click();
 	});
 	
@@ -78,8 +95,10 @@ function deleteNote(obj, noteId) {
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
 			console.error("Error occured while deleting Note:")
-	        console.error(xhr.responseJSON.status, xhr.responseJSON.error);
-	        console.error(xhr.responseJSON.message);
+			if(xhr.responseJSON){
+	        	console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+		        console.error(xhr.responseJSON.message);
+	        }
 	      }
 	});
 }
@@ -137,9 +156,11 @@ function updateNote() {
 			}
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
-			console.error("Error occured while adding Note:")
-	        console.error(xhr.responseJSON.status, xhr.responseJSON.error);
-	        console.error(xhr.responseJSON.message);
+			console.error("Error occured while Updating Note:")
+	        if(xhr.responseJSON){
+	        	console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+		        console.error(xhr.responseJSON.message);
+	        }
 		}
 	});
 	clearModal();

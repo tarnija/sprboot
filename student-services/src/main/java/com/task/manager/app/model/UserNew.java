@@ -1,6 +1,5 @@
 package com.task.manager.app.model;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 @Entity
@@ -16,17 +15,6 @@ public class UserNew extends BaseEntity {
 		
 	private String answer;
 
-	@Embedded
-	public EntityCommonData commonData;
-	
-	public EntityCommonData getCommonData() {
-		return commonData;
-	}
-
-	public void setCommonData(EntityCommonData commonData) {
-		this.commonData = commonData;
-	}
-	
 	public String getName() {
 		return name;
 	}

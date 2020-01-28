@@ -2,6 +2,9 @@ package com.task.manager.app.service;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -15,6 +18,9 @@ public class TaskServiceImpl implements TaskService {
 	@Autowired
 	private TaskRepository taskdao;
 
+	@PersistenceContext
+    private EntityManager entityManager;
+	
 	@Override
     public List<Task> retrieveTasks(String username) {
         if(!StringUtils.isEmpty(username))
@@ -40,6 +46,6 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public List<Task> getAllUserTask(Long userId) {
-		return taskdao.findTaskByUserId(userId);
+		return entityManager.createQuery("SELECT t FROM Task t ORDER BY t.createdOn DESC", Task.class).setMaxResults(11).getResultList();
 	}
 }

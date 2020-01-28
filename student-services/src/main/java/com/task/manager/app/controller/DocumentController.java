@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,8 +31,10 @@ public class DocumentController extends BaseController {
 		return "documents";
 	}
 	
-	@PostMapping("/documents")
-	public @ResponseBody String addUserDocs(ModelMap map, @RequestParam("file") MultipartFile file, @RequestParam("userId") Long userId) throws IllegalStateException, IOException {
+	@PostMapping("/documents/{userId}")
+	public @ResponseBody String addUserDocs(ModelMap map, @RequestParam("file") MultipartFile file, @PathVariable("userId") Long userId) throws IllegalStateException, IOException {
+		File userDoc = new File(file.getOriginalFilename());
+		file.transferTo(userDoc);
 		Document document = new Document(file.getOriginalFilename(), file.getSize(), file.getContentType(), userId);
 		return "uploaded";
 	}

@@ -4,19 +4,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Embeddable
 public class EntityCommonData {
 
-	@Column(name = "CREATED_ON")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date createdOn;
+	@Column(name = "CREATED_ON", nullable = false)
+	private Date createdOn = new Date();
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "MODIFIED_ON")
-	private Date modifiedOn;
+	@Column(name = "MODIFIED_ON", nullable = false)
+	private Date modifiedOn = new Date();
 	
 	@Column(name = "CREATED_BY")
 	private Long createdBy;

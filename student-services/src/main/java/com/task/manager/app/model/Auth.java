@@ -1,6 +1,5 @@
 package com.task.manager.app.model;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
 @Entity
@@ -24,17 +23,6 @@ public class Auth extends BaseEntity {
 
 	public void setAuthority(String authority) {
 		this.authority = authority;
-	}
-
-	@Embedded
-	public EntityCommonData commonData;
-	
-	public EntityCommonData getCommonData() {
-		return commonData;
-	}
-
-	public void setCommonData(EntityCommonData commonData) {
-		this.commonData = commonData;
 	}
 	
 	public Auth(String name, String authority) {

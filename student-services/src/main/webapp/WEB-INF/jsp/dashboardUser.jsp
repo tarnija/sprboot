@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="context" value="/task-manager/app" />
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
@@ -82,7 +83,7 @@
 							<h6>New</h6>
 							<hr>
 						</div>
-					 	<c:forEach items="${tasks}" var="task">
+					 	<c:forEach items="${tasks}" var="task" begin="0" end="9">
 						<div class="task-card new-task">
 							<h6 class="task-title">${task.taskTitle}</h6>
 							<p class="">${task.description}</p>
@@ -92,9 +93,11 @@
 							</p>
 						</div>
 						</c:forEach>
-						<div class="show-all-container" id="show-all-container-new">
-							<button class="btn btn-sm btn-block show-all-btn btn-outline-primary">Show All</button>
-						</div>
+						<c:if test="${fn:length(task) gt 10}">
+							<div class="show-all-container" id="show-all-container-new">
+								<button class="btn btn-sm btn-block show-all-btn btn-outline-primary">Show All</button>
+							</div>
+						</c:if>
 					</div>
 					<div class="board" id="progress-task-board">
 						<div class="task-board-title">

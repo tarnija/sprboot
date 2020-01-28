@@ -1,11 +1,12 @@
 package com.task.manager.app.model;
 
 
-import javax.persistence.Embedded;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -17,11 +18,14 @@ public class Task extends BaseEntity {
     private String description;
     private String assignee;
     
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    @Temporal(TemporalType.DATE)
     private Date startOn;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    @Temporal(TemporalType.DATE)
     private Date doneBy;
+    
     private String taskTitle;
     private String userName;
     private String status;
@@ -88,17 +92,6 @@ public class Task extends BaseEntity {
 	
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	
-	@Embedded
-	public EntityCommonData commonData;
-	
-	public EntityCommonData getCommonData() {
-		return commonData;
-	}
-
-	public void setCommonData(EntityCommonData commonData) {
-		this.commonData = commonData;
 	}
 	
 	public Task(Long userId, String description, String assignee, Date startOn, Date doneBy, String taskTitle,

@@ -3,7 +3,6 @@ package com.task.manager.app.model;
 import java.util.Set;
 
 import javax.persistence.Convert;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -36,24 +35,12 @@ public class Note extends BaseEntity {
 		this.content = content;
 	}
 	
-
 	public Set<String> getTags() {
 		return tags;
 	}
 
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
-	}
-
-	@Embedded
-	public EntityCommonData commonData;
-	
-	public EntityCommonData getCommonData() {
-		return commonData;
-	}
-
-	public void setCommonData(EntityCommonData commonData) {
-		this.commonData = commonData;
 	}
 
 	public Note(String title, String content, Set<String> tags, Long createdBy) {
