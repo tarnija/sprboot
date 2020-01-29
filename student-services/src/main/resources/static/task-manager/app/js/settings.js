@@ -1,4 +1,7 @@
 $(document).ready(function() {
+	
+	$(".user-menu-list-settings").addClass("user-menu-list-active");
+	
 	var isLight = true;
 	$("#show").hide();
 	

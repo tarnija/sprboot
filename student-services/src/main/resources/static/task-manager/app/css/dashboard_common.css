@@ -207,7 +207,7 @@ li {
 }
 
 .board {
-	width: 25%; float: left; height: 90%; padding: 0 10px;    border-right: 1px solid #ccc; padding-bottom: 40px;
+	width: 25%; float: left; height: 90%; padding: 0 10px;    border-right: 1px solid #ccc; 
 /*  overflow-y: auto; */
 
 	

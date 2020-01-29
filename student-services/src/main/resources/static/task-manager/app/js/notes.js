@@ -9,6 +9,8 @@ $.fn.extend({
 
 $(document).ready(function() {
 
+	$(".user-menu-list-notes").addClass("user-menu-list-active");
+	
 	$("#show, #add-first-note").removeAttr("data-target");
 	
 	$("#add-first-note, #show").click(function() {
@@ -46,7 +48,8 @@ $(document).ready(function() {
 				data:{
 					title:noteTitle,
 					content:noteContent,
-					tags:tags
+					tags:tags,
+					userId: $("#userId").val()
 				},
 				success:function(response){
 					$("#notes-container").append(response);

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="context" value="/task-manager/app" />
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <% String currentTheme = (String)session.getAttribute("currentTheme");%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +18,7 @@
 	</c:if>
 </head>
 <body>
+<input id="userId" type="hidden" value="${user.id}" />
 	<div class="wrapper main-container">
 		<div class="side-bar" id="sidebar">
 			<jsp:include page="sideMenu.jsp"></jsp:include>
@@ -42,7 +44,7 @@
 							<h4 class='note-title'>
 								<c:out value="${note.title}" />
 								<span class='note-date'>
-									<c:out value="${note.commonData.createdOn}" />
+									<fmt:formatDate pattern = "dd-MM-yyy" value = "${note.createdOn}" />
 								</span> 
 							</h4>
 							<p class='note-content'>

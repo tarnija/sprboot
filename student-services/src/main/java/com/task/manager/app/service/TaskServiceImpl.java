@@ -46,6 +46,10 @@ public class TaskServiceImpl implements TaskService {
 
 	@Override
 	public List<Task> getAllUserTask(Long userId) {
-		return entityManager.createQuery("SELECT t FROM Task t ORDER BY t.createdOn DESC", Task.class).setMaxResults(11).getResultList();
+		return entityManager
+				.createQuery("SELECT t FROM Task t WHERE t.userId =:userId ORDER BY t.createdOn DESC", Task.class)
+				.setParameter("userId", userId)
+				.setMaxResults(11)
+				.getResultList();
 	}
 }

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 	<div class='note'>
 		<a href='#' class='btn btn-block a-btn-slide-text note-delete' onclick='deleteNote(this, <c:out value="${note.id}" />)'> 
 			<i class='fa fa-trash-alt' aria-hidden='true'></i> 
@@ -11,7 +12,7 @@
 		<h4 class='note-title'>
 			<c:out value="${note.title}" />
 			<span class='note-date'>
-				<c:out value="${note.commonData.createdOn}" />
+				<fmt:formatDate pattern = "dd-MM-yyy" value = "${note.createdOn}" />
 			</span> 
 		</h4>
 		<p class='note-content'>

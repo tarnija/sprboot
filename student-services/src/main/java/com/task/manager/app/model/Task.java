@@ -4,6 +4,8 @@ package com.task.manager.app.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -11,7 +13,7 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "task")
+@Table(name = "TASK")
 public class Task extends BaseEntity { 
 	
 	private Long userId;
@@ -28,7 +30,9 @@ public class Task extends BaseEntity {
     
     private String taskTitle;
     private String userName;
-    private String status;
+    
+    @Enumerated(EnumType.STRING)
+	private TaskStatus status = TaskStatus.NEW;
 
     public Long getUserid() {
 		return userId;
@@ -86,16 +90,16 @@ public class Task extends BaseEntity {
 		this.userName = userName;
 	}
 	
-	public String getStatus() {
+	public TaskStatus getStatus() {
 		return status;
 	}
 	
-	public void setStatus(String status) {
+	public void setStatus(TaskStatus status) {
 		this.status = status;
 	}
 	
 	public Task(Long userId, String description, String assignee, Date startOn, Date doneBy, String taskTitle,
-		String username, String status) {
+		String username, TaskStatus status) {
 		this.userId = userId;
 		this.description = description;
 		this.assignee = assignee;

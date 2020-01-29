@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$("#show").hide();
 	
+	$(".user-menu-list-profile").addClass("user-menu-list-active");
+	
 	const DOB_INVALID_ERROR = "*Date of birth is not valid";
 	const DOB_EMPTY_ERROR = "*Date of birth is required";
 	const NAME_EMPTY_ERROR = "*Firts name is required";

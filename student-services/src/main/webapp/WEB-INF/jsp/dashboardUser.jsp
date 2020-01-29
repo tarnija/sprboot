@@ -86,7 +86,7 @@
 					 	<c:forEach items="${tasks}" var="task" begin="0" end="9">
 						<div class="task-card new-task">
 							<h6 class="task-title">${task.taskTitle}</h6>
-							<p class="">${task.description}</p>
+							<p class="task-desc">${task.description}</p>
 							<p>
 								<span class="task-category">Category</span> 
 								<span class="task-date">Done By : <fmt:formatDate value="${task.doneBy}" pattern="dd/MM/yyyy" /></span>
@@ -104,14 +104,7 @@
 							<h6 class="text-primary">In Progress</h6>
 							<hr>
 						</div>
-						<div class="task-card progress-task">
-							<h6 class="task-title">Title</h6>
-							<p>Some description of the task</p>
-							<p>
-								<span class="task-category">Category</span> 
-								<span class="task-date">22/12/2019</span>
-							</p>
-						</div>
+						
 						<div class="show-all-container" id="show-all-container-progress">
 							<button class="btn btn-sm btn-block btn-primary show-all-btn">Show All</button>
 						</div>
@@ -121,14 +114,7 @@
 							<h6 class="text-success">Completed</h6>
 							<hr>
 						</div>
-						<div class="task-card completed-task">
-							<h6 class="task-title">Title</h6>
-							<p>Some description of the task</p>
-							<p>
-								<span class="task-category">Category</span> 
-								<span class="task-date">22/12/2019</span>
-							</p>
-						</div>
+
 						<div class="show-all-container" id="show-all-container-completed">
 							<button class="btn btn-sm btn-block btn-success show-all-btn">Show All</button>
 						</div>
@@ -138,14 +124,7 @@
 							<h6 class="text-danger">Delayed</h6>
 							<hr>
 						</div>
-						<div class="task-card delayed-task">
-							<h6 class="task-title">Title</h6>
-							<p>Some description of the task</p>
-							<p>
-								<span class="task-category">Category</span> 
-								<span class="task-date">22/12/2019</span>
-							</p>
-						</div>
+						
 						<div class="show-all-container" id="show-all-container-delayed">
 							<button class="btn btn-sm btn-block btn-danger show-all-btn">Show All</button>
 						</div>

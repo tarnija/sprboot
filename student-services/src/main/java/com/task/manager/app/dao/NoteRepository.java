@@ -29,6 +29,9 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 	// SELECT * FROM notes WHERE title LIKE 'in%';
 	List<Note> findByTitleEndsWith(String director);
 	
+	List<Note> findByCreatedBy(Long userId);
+	
+	
 	@Modifying
 	@Query("UPDATE Note n SET n.title = :title, n.content = :content, n.tags = :tags WHERE n.id = :id")
 	void updateNote(@Param("title") String title, @Param("content") String content, @Param("tags") Set<String> tags, @Param("id") Long id);

@@ -1,6 +1,5 @@
 package com.task.manager.app.controller;
 
-import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,13 +33,6 @@ public class UserController extends BaseController {
 			UserNew user = userService.findUser(getLoggedInUserName());
 			map.put("user", user);
 			List<Task> tasks = taskService.getAllUserTask(user.getId());
-			
-			/*
-			 * tasks.stream().sorted(new Comparator<Task>() {
-			 * 
-			 * @Override public int compare(Task t1, Task o2) { //
-			 * t1.getCommonData().getCreatedBy() return 0; } });
-			 */
 			map.put("tasks", tasks);
 			map.put("title", "Dashboard");
 			map.put("currentUserName", getLoggedInUserName());

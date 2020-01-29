@@ -1,4 +1,7 @@
 $(document).ready(function() {
+	
+	$(".user-menu-list-documents").addClass("user-menu-list-active");
+	
 	$("#show").attr("data-target", "#new-doc-modal");
 	
 	$("#add-doc-btn").click(function() {
