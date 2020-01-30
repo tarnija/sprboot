@@ -78,7 +78,7 @@
 					</div>
 				</div>
 				<div class="task-board">
-					<div class="board" id="new-task-board">
+					<div class="board" id="new-task-board" style="${fn:length(task) ne 10 ? 'padding-bottom:40px;' : ''}">
 						<div class="task-board-title">
 							<h6>New</h6>
 							<hr>

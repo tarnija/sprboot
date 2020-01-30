@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.task.manager.app.model.Task;
 import com.task.manager.app.model.UserNew;
+import com.task.manager.app.service.AuthService;
 import com.task.manager.app.service.LoginService;
 import com.task.manager.app.service.TaskService;
 import com.task.manager.app.utils.AppURLs;
@@ -26,12 +27,17 @@ public class UserController extends BaseController {
 
 	@Autowired
 	private LoginService userService;
+	
+	@Autowired
+	private AuthService authService;
 
 	@GetMapping("/dashboard")
 	public String showTodos(ModelMap map) {
 		if(!StringUtils.isEmpty(getLoggedInUserName())) {
 			UserNew user = userService.findUser(getLoggedInUserName());
 			map.put("user", user);
+			List<String> userNames = authService.findAllUsersExceptAdmin();
+			map.put("allUsers", userNames);
 			List<Task> tasks = taskService.getAllUserTask(user.getId());
 			map.put("tasks", tasks);
 			map.put("title", "Dashboard");

@@ -15,9 +15,9 @@ $(document).ready(function() {
 
 	$(".task-card").click(function() {
 		console.log($(".task-title").text());
-		console.log($(".task-title").text());
-		console.log($(".task-title").text());
-		console.log($(".task-title").text());
+		console.log($(".task-desc").text());
+		console.log($(".task-category").text());
+		console.log($(".task-date").text());
 		$("#new-task-modal").modal('show');
 	});
 

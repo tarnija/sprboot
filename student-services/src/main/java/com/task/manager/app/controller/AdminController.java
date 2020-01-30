@@ -43,7 +43,7 @@ public class AdminController extends BaseController {
 	
 	@GetMapping(value="/dashboard")
 	public String welcomeAdmin(ModelMap map){
-		List<UserNew> users=adminService.retrieveUsers();
+		List<UserNew> users = adminService.retrieveUsers();
 		SecurityContext context = SecurityContextHolder.getContext();
 		String adminname = context.getAuthentication().getName();
 		users = users.stream().filter(p->!p.getName().equalsIgnoreCase(adminname)).collect(Collectors.toList());

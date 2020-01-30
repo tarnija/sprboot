@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="modal" id="new-task-modal">
     		<div class="modal-dialog modal-dialog-centered modal-lg">
       			<div class="modal-content">
@@ -49,17 +50,23 @@
 	      								</div>
 										<div class="col-md-4">     
 									     	<select disabled class="form-control" id="status"> 
-									        	<option value="New">New</option> 
-									            <option value="In Progress">In Progress</option>
-									            <option value="Completed">Completed</option> 
-									            <option value="Delayed">Delayed</option> 
+									        	<option value="NEW">New</option> 
+									            <option value="INPROGRESS">In Progress</option>
+									            <option value="COMPLETED">Completed</option> 
+									            <option value="DELAYED">Delayed</option> 
+									            <option value="CANCELLED">Cancelled</option> 
 									        </select> 
 									  	</div>
 									  	<div class="col-md-2">
 						       				<label for="colFormLabel" class="col-form-label-lg">Assignee :</label>
 						       			</div>
 									    <div class="col-md-4">  
-									    	<input class="form-control" id="assignee" type="text" name="assignee">
+									    	<select class="form-control" id="assignee" name="assignee"> 
+									    		<option>--Select--</option>
+									    		<c:forEach items="${allUsers}" var="userName">
+									    			<option value="${userName}">${userName}</option>
+									    		</c:forEach>
+									        </select> 
 									    </div>
 	   								</div>
   								</fieldset>
