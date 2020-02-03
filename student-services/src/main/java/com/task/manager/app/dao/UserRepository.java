@@ -1,10 +1,14 @@
 package com.task.manager.app.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.task.manager.app.model.UserNew;
 
@@ -24,4 +28,14 @@ public interface UserRepository extends JpaRepository<UserNew, Long>{
 	UserNew findUserByNameOrEmail(String name, String email);
 
 	UserNew findUserNewById(Long id);
+	
+	@Modifying
+	@Query("UPDATE UserNew un SET un.profileImage =:profileImage WHERE un.id =:id")
+	void updateUserProfilePic(@Param("profileImage") String profileImage, @Param("id") Long id);
+	
+	@Transactional
+	@Modifying
+	@Query("UPDATE UserNew un SET un.firstName =:firstName, un.lastName =:lastName, un.contact =:contact, un.dateOfBirth =:dateOfBirth WHERE un.id =:id")
+	void updateUserProfile(@Param("firstName") String firstName, @Param("lastName") String lastName, @Param("contact") String contact, 
+			@Param("dateOfBirth") Date dateOfBirth, @Param("id") Long id);
 }

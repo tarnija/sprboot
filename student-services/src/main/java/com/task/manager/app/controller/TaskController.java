@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,13 @@ public class TaskController extends BaseController {
 
 	@Autowired
 	private TaskService taskService;
+	
+	
+	@GetMapping(value = "/task", produces =  MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody Task getTaskById(@RequestParam(name = "taskId", required = true) Long taskId) {
+		return taskService.geTaskById(taskId);
+	}
+	
 	
 	@PostMapping(value = "/task", produces =  MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody ResponseEntity<String> addTodos(@RequestBody(required = false) Task task) {

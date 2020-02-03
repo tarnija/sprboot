@@ -1,5 +1,7 @@
 package com.task.manager.app;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
+		http.sessionManagement().invalidSessionUrl("/task-manager/app/login?error=sessionexpired");
 		http.csrf().disable().authorizeRequests()
 		.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
 				.antMatchers("/", "/task-manager",  "/task-manager/app/**").permitAll()
@@ -57,8 +60,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.loginProcessingUrl("/j_spring_security_check").loginPage("/task-manager/app/login")
 				.successHandler(myAuthenticationSuccessHandler())
 				.failureHandler((req, res, auth) -> {
-					res.sendRedirect("/task-manager/app/login?error=true");
+					res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+					res.sendRedirect("/task-manager/app/login?error=invalidcredentials");
 				})
+				
 				.usernameParameter("name")
 				.passwordParameter("password")
 				.and().logout().logoutUrl("/task-manager/app/logout").logoutSuccessUrl("/performLogOut");

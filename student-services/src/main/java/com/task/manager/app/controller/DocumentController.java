@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.task.manager.app.model.Document;
 import com.task.manager.app.service.DocumentService;
 import com.task.manager.app.utils.AppURLs;
 
@@ -35,7 +34,7 @@ public class DocumentController extends BaseController {
 	public @ResponseBody String addUserDocs(ModelMap map, @RequestParam("file") MultipartFile file, @PathVariable("userId") Long userId) throws IllegalStateException, IOException {
 		File userDoc = new File(file.getOriginalFilename());
 		file.transferTo(userDoc);
-		Document document = new Document(file.getOriginalFilename(), file.getSize(), file.getContentType(), userId);
+		//Document document = new Document(file.getOriginalFilename(), file.getSize(), file.getContentType(), userId);
 		return "uploaded";
 	}
 	

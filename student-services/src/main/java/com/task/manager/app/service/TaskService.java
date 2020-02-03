@@ -11,4 +11,6 @@ public interface TaskService {
 	public Task addTask(Task add);
 	public void deleteTask(String userId);
 	public void assignTask(String username, String adminname);
+	public Task geTaskById(Long taskId);
+	
 }

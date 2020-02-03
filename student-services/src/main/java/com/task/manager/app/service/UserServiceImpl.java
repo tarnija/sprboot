@@ -1,11 +1,14 @@
 package com.task.manager.app.service;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.task.manager.app.dao.AuthRepository;
 import com.task.manager.app.dao.UserRepository;
@@ -19,8 +22,8 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userDao;
 	
 	@Autowired
-	private AuthRepository authDao;
-
+	private AuthRepository authDao; 
+	
 	@Override
 	public boolean addUser(String name, String password, String email, String ques, String ans) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -125,5 +128,22 @@ public class UserServiceImpl implements UserService {
 		userDao.deleteById(id);
 		authDao.deleteAuthByName(username);
 		return username;
+	}
+
+	@Override
+	public UserNew getUser(Long userId) {
+		return userDao.findById(userId).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public void updateUserProfilePic(String profileImage, Long userId) {
+		userDao.updateUserProfilePic(profileImage, userId);
+	}
+
+	@Override
+	public void updateUserProfile(String firstName, String lastName, String contact, int day, int month, int year, Long userid) {
+		Date dateOfBirth = new GregorianCalendar(year, month, day).getTime();
+		userDao.updateUserProfile(firstName, lastName==null?"":lastName, contact, dateOfBirth, userid);
 	}
 }

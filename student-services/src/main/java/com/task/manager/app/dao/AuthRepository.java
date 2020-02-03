@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.task.manager.app.model.Auth;
+import com.task.manager.app.model.UserNew;
 
 public interface AuthRepository extends JpaRepository<Auth, Long> {
 
@@ -17,6 +18,6 @@ public interface AuthRepository extends JpaRepository<Auth, Long> {
 	void deleteAuthByName(String name);
 	
 
-	@Query(value = "SELECT a.name FROM Auth a WHERE a.authority!='admin'")
-	List<String> findAllUsersExceptAdmin();
+	@Query(value = "SELECT a FROM Auth a WHERE a.authority!='admin'")
+	List<UserNew> findAllUsersExceptAdmin();
 }

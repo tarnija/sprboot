@@ -35,9 +35,15 @@ public class UserController extends BaseController {
 	public String showTodos(ModelMap map) {
 		if(!StringUtils.isEmpty(getLoggedInUserName())) {
 			UserNew user = userService.findUser(getLoggedInUserName());
+			if(user == null) {
+				return "redirect:/task-manager/app/login";
+			}
+			else if(user.getFirstName() == null) {
+				return "redirect:/task-manager/app/user/profile/"+user.getId();
+			}
 			map.put("user", user);
-			List<String> userNames = authService.findAllUsersExceptAdmin();
-			map.put("allUsers", userNames);
+			List<String> users = authService.findAllUsersExceptAdmin();
+			map.put("users", users);
 			List<Task> tasks = taskService.getAllUserTask(user.getId());
 			map.put("tasks", tasks);
 			map.put("title", "Dashboard");

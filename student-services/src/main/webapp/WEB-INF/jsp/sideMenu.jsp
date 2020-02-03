@@ -15,7 +15,7 @@
 		</div>
 		<div class="user-menu-container">
 			<ul class="user-menu-list">
-				<li class="user-menu-list-profile"><h6><a href="${context}/user/profile/">Profile</a></h6></li>
+				<li class="user-menu-list-profile"><h6><a href="${context}/user/profile/${user.id}">Profile</a></h6></li>
 				<li class="user-menu-list-dashboard"><h6><a href="${context}/user/dashboard/">Dashboard</a></h6></li>
 				<li class="user-menu-list-tasks"><h6><a href="${context}/user/tasks">Tasks</a></h6></li>
 				<li class="user-menu-list-settings"><h6><a href="${context}/settings/">Settings</a></h6></li>

@@ -2,6 +2,8 @@ package com.task.manager.app.service;
 
 import java.util.HashMap;
 
+import com.task.manager.app.model.UserNew;
+
 public interface UserService {
 
 	public boolean addUser(String name, String password, String email, String question, String answer);
@@ -19,4 +21,9 @@ public interface UserService {
 	public String getRole(String name);
 
 	public String deleteUser(Long userId);
+	
+	public UserNew getUser(Long userId);
+	
+	public void updateUserProfilePic(String profileImage, Long userId);
+	public void updateUserProfile(String firstName, String lastName, String contact, int day, int month, int year, Long userid);
 }

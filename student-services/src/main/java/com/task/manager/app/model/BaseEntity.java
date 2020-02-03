@@ -7,6 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @MappedSuperclass
 public class BaseEntity {
@@ -23,11 +29,11 @@ public class BaseEntity {
 		this.id = id;
 	}
 
-	@Column(name = "CREATED_ON", nullable = false)
+	@Column(name = "CREATED_ON")
 	private Date createdOn = new Date();
 
-	@Column(name = "MODIFIED_ON", nullable = false)
-	private Date modifiedOn = new Date();
+	@Column(name = "MODIFIED_ON")
+	private Date modifiedOn = new Date();;
 	
 	@Column(name = "CREATED_BY")
 	private Long createdBy;

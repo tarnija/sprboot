@@ -85,11 +85,15 @@
 						</div>
 					 	<c:forEach items="${tasks}" var="task" begin="0" end="9">
 						<div class="task-card new-task">
-							<h6 class="task-title">${task.taskTitle}</h6>
+							<h6 class="task-title">${task.taskTitle}  <span class="task-id">${task.id}</span> </h6>
 							<p class="task-desc">${task.description}</p>
 							<p>
-								<span class="task-category">Category</span> 
-								<span class="task-date">Done By : <fmt:formatDate value="${task.doneBy}" pattern="dd/MM/yyyy" /></span>
+								<!-- <span class="task-category">Category</span> --> 
+								<span class="task-date">Done By : 
+									<span class="task-date-value">
+										<fmt:formatDate value="${task.doneBy}" pattern="dd/MM/yyyy" />
+									</span>
+								</span>
 							</p>
 						</div>
 						</c:forEach>

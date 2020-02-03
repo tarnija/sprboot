@@ -21,7 +21,8 @@
 				
 				</div>
 				<div class="panel-body">
-					<font color="red">${errorMessage}</font> <font color="green">${msg}</font>
+					<p class="login-error-msg">${errorMessage}</p>
+					<p class="login-msg">${msg}</p>
 							<h2 style="text-align:center;">LOGIN</h2>
 					<hr>
 						<form method="post" action="/j_spring_security_check" style="align-items:center;">

@@ -52,4 +52,9 @@ public class TaskServiceImpl implements TaskService {
 				.setMaxResults(11)
 				.getResultList();
 	}
+
+	@Override
+	public Task geTaskById(Long taskId) {
+		return taskdao.findById(taskId).orElse(null);
+	}
 }

@@ -25,7 +25,8 @@ public class SignupController extends BaseController {
     }
 	
 	@PostMapping("/signup")
-    public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password ,@RequestParam String email,@RequestParam String ques,@RequestParam String ans){
+    public String showWelcomePage(ModelMap model, @RequestParam String name, @RequestParam String password, @RequestParam String email, @RequestParam String ques,
+    		@RequestParam String ans){
 		boolean added=userService.addUser(name, password, email,ques,ans);
 		if(added) {
 			model.addAttribute("msg", "Added Successfully user!!!!. Please login");

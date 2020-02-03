@@ -174,10 +174,3 @@ function addDoc(){
 	$("#close-doc-btn").click();
 	checkDocs();	
 }		
-
-
-
-
-
-
-

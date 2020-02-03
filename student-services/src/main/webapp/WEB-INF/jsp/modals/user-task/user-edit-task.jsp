@@ -3,7 +3,7 @@
     		<div class="modal-dialog modal-dialog-centered modal-lg">
       			<div class="modal-content">
         			<div class="modal-header">
-			       		<h4 class="modal-title">Add your task:</h4>
+			       		<h4 class="modal-title">Task: {task.id}</h4>
                  		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
           					<span aria-hidden="true">&times;</span>
           				</button>
@@ -19,7 +19,7 @@
 						       				<label for="colFormLabel" class="col-form-label-lg">Title :</label>
 						       			</div>
 	    								<div class="col-md-10">
-	     									<input class="form-control" id="title" type="text" name="title">
+	     									<input class="form-control" id="title" type="text" name="title" value="${task.taskTitle}">
 	     								</div>
 	    							</div>
 	       							<div class="form-group row">
@@ -27,7 +27,7 @@
 						       				<label for="colFormLabel" class="col-form-label-lg">Description :</label>
 						       			</div>
 	     								<div class="col-md-10">  
-	      									<textarea class="form-control" id="description" rows="3" cols="50"></textarea>
+	      									<textarea class="form-control" id="description" rows="3" cols="50" >${task.description}</textarea>
 	      								</div>
 	    							</div>
 	     							<div class="form-group row">
@@ -63,8 +63,8 @@
 									    <div class="col-md-4">  
 									    	<select class="form-control" id="assignee" name="assignee"> 
 									    		<option>--Select--</option>
-									    		<c:forEach items="${users}" var="u">
-									    			<option value="${u.id}">${u.userName}</option>
+									    		<c:forEach items="${allUsers}" var="userName">
+									    			<option value="${userName}">${userName}</option>
 									    		</c:forEach>
 									        </select> 
 									    </div>

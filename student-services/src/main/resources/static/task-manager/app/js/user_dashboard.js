@@ -3,7 +3,6 @@ $(document).ready(function() {
 	$(".user-menu-list-dashboard").addClass("user-menu-list-active");
 
 	if ($("#new-task-board .task-card").length < 10) {
-		
 		$("#show-all-container-delayed").hide();
 	}
 	if ($("#progress-task-board .task-card").length < 10) {
@@ -14,12 +13,25 @@ $(document).ready(function() {
 	}
 
 	$(".task-card").click(function() {
-		console.log($(".task-title").text());
-		console.log($(".task-desc").text());
-		console.log($(".task-category").text());
-		console.log($(".task-date").text());
-		$("#new-task-modal").modal('show');
+		$.ajax({
+			type : "GET",
+			url : "../user/task",
+			data : {
+				"taskId": $(".task-id").text().trim()
+			},
+			success : function(response) {
+				console.log(response);
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				console.error("Error occured while Getting Task:")
+				if (xhr.responseJSON) {
+					console.error(xhr.responseJSON.status, xhr.responseJSON.error);
+					console.error(xhr.responseJSON.message);
+				}
+			} 
 	});
+		
+	});	
 
 	$(".btn.btn-danger.btn-task").click(function() {
 		$("#new-task-modal").modal('hide');

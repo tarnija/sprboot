@@ -83,3 +83,17 @@ p {
 .form-group {
 	margin-bottom: 0.5rem;
 }
+
+.login-error-msg {
+	text-align:center;
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+ }
+ 
+ .login-msg {
+	text-align:center;
+    font-weight: bold;
+    font-size: 18px;
+    color: green;
+ }

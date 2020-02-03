@@ -170,6 +170,11 @@ body{
     width: 100%; border-radius: 2px; padding: 5px;
 }
 
+.task-id {
+	float: right;
+    margin-right: 8px;
+}
+
 .progress-task {
 	box-shadow: 0px 0px 2px 1px rgba(0,0,255,0.5);
 }

@@ -6,7 +6,10 @@
 <title>${title}</title>
 <link rel="stylesheet" href="${context}/css/bootstrap.min.css"> 
 <link rel="stylesheet" href="${context}/css/fa-svg-with-js.css">
+<link rel="stylesheet" href="${context}/css/PNotifyBrightTheme.css">
 <script src="${context}/js/jquery.min.js"></script>
 <script src="${context}/js/popper.min.js"></script>
 <script src="${context}/js/bootstrap.min.js"></script>
 <script src="${context}/js/fontawesome-all.min.js"></script>
+<script src="${context}/js/pnotify.js"></script>
+<script src="${context}/js/PNotifyButtons.js"></script>
